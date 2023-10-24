@@ -1,0 +1,42 @@
+Comandos em Linux:
+
+- sudo: é chamado para que um determinado comando seja executado com privilégios administrativos.
+- su: permite a troca de usuario, exemplo: su <ithalo>.
+- sudo su: entra no modo root
+- sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser.
+- shutdown now: desliga o computador instantaneamente
+- shutdown: desliga o pc dentro de 60 segundos
+- shutdown hh:mm (ex: shutdown 12:00): Desliga o PC de forma agendada conforme o parametro passado
+- shutdown +m (ex: shutdown +20): Vai desligar dentro do tempo que você passar, o +m significa minuto
+- shutdown +m "Mensagem desejada": A ideia é a mesma do comando acima, a unica diferença será a mensagem mostrada
+- OBS Sobre o shutdown: se colocar -r na frente será para reinicialização, -p desliga o sistema (também desliga a unidade).
+
+- passwd: muda a senha de usuario
+- cmp <arquivo1> <arquivo2>: compara o tamanho dos arquivos
+- date: mostra a data atual, horario e o GMT que o sistema esta.
+- cal: mostra o calendario
+- ls: verifica todos os arquivos, lembre-se tem variatnes como ls -la (ve arquivos oculto), ls -ltr (mostra a data de criaçao), ls <nome do diretorio> para mostra o que tem nele, sem entrar.
+- locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
+- | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
+- mkdir: cria diretórios
+- rm -rf: força a exclusão de arquivos, diretorios, etc
+- mv: consegue mover um arquivo ou modificar o nome, (ex mover: mv <arquivo> /endereço), (ex: renomear: mv <arquivo> <novoNomeDeArquivo>)
+- cp: Faz uma copia seja na mesma pasta, ou em algum outro endereço, -r é para diretorio (ex: cp <nome> <copia>)(ex: cp <nome> /endereço)(copia de diretorio ex: cp -r <nome> <nomedacopia>) (ex: cp -r <nome> /endereço)
+- scp: Mesma função do cp, a diferença fica que é usado para servidores, entao vc consegue jogar de um servidor para o outro por scp
+- free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
+- du: Mostra o tamanho do arquivo, diretorio, du -k (kb), du -m (mb), etc
+- df: Mostra o tamanho do Disco, lembre-se tem variante como du -h (human), etc
+
+- more: Assim como o cat ele mostra o texto do arquivo, porém a diferença é se tiver faltando espaço ele mostra -mais-, ai vc fica apertando enter pra mostrar linha por linha do que falta.
+- more -5: vai mostrar a quantidade de linhas que eu pedi, poderia colocar mais linhas ou menos. (ex: more -10 <nome_arquivo> , vai mostrar 10 linhas do arquivo)
+- more +5: vai apagar as quantidade de linhas que eu pedi (ex more +10 <nome_arquivo>, vai apagar as dez primeiras linhas do arquivo).
+
+- cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
+- cat > <nome_do_arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
+- vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
+- editor (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
+- alias: consegue setar um comando persolizado (macro)
+- ssh -l <login> <nome da maquina virtual>: acesso remoto para uma maquina virtual.
+- ssh <login>@<nome_da_maquina_virtual>: acesso remoto para uma maquina virtual de um jeito alternativo.
+- ps aux: Mostra as (PID) de todos os processos, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)
+- top: Mostra todos os processos listando o (PID) uso de memoria e tudo mais, como fosse um gerenciador de tarefa mesmo, diferente do ps que ele monitora em tempo real
