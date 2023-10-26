@@ -1,5 +1,7 @@
 Comandos em Linux:
 
+- uname -a: Exibe todas as informações do sistema
+
 - sudo: é chamado para que um determinado comando seja executado com privilégios administrativos.
 - su: permite a troca de usuario, exemplo: su <ithalo>.
 - sudo su: entra no modo root
@@ -13,6 +15,12 @@ Comandos em Linux:
 
 - passwd: muda a senha de usuario
 - cmp <arquivo1> <arquivo2>: compara o tamanho dos arquivos
+
+- diff <arquivo1> <arquivo2>: Compara linha por linha entre os dois arquivos e mostra as respectivas diferenças
+- diff -b <arquivo1> <arquivo2>: Ignora espaço em branco como possível diferença.
+- diff -i <arquivo1> <arquivo2>: Ele passa a não diferençar caracteres maiusculo e minúsculos.
+- diff -q <arquivo1> <arquivo2>: Apenas diz se o arquivo é diferente, ele não trás retorno algum.
+
 - date: mostra a data atual, horario e o GMT que o sistema esta.
 - cal: mostra o calendario
 - ls: verifica todos os arquivos, lembre-se tem variatnes como ls -la (ve arquivos oculto), ls -ltr (mostra a data de criaçao), ls <nome do diretorio> para mostra o que tem nele, sem entrar.
@@ -31,12 +39,27 @@ Comandos em Linux:
 - more -5: vai mostrar a quantidade de linhas que eu pedi, poderia colocar mais linhas ou menos. (ex: more -10 <nome_arquivo> , vai mostrar 10 linhas do arquivo)
 - more +5: vai apagar as quantidade de linhas que eu pedi (ex more +10 <nome_arquivo>, vai apagar as dez primeiras linhas do arquivo).
 
+- head <arquivo>: Mostra as 10 primeiras linhas do arquivo
+- head -5 <arquivo>: Mostra as primeiras quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 primeiras linhas
+
+- tail <arquivo>: Mostra as 10 ultimas linhas do arquivo
+- tail -5: Mostra as ultimas quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 ultimas linhas
+
+
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
-- cat > <nome_do_arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
+- cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
+- touch <arquivo>: é usado para criar arquivos vazies, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - editor (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
 - alias: consegue setar um comando persolizado (macro)
 - ssh -l <login> <nome da maquina virtual>: acesso remoto para uma maquina virtual.
 - ssh <login>@<nome_da_maquina_virtual>: acesso remoto para uma maquina virtual de um jeito alternativo.
-- ps aux: Mostra as (PID) de todos os processos, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)
+
+- ps aux: Mostra as (PID) de TODOS os processos de TUDO, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)
+- ps axf: Mostra as (PID) de TODOS os processos de TUDO, em forma de arvore
+- ps -ux: Mostra as (PID) de todos os processos do USUARIO, diferente do aux que mostra de tudo, | grep para filtrar o processo e o (PID)
+
 - top: Mostra todos os processos listando o (PID) uso de memoria e tudo mais, como fosse um gerenciador de tarefa mesmo, diferente do ps que ele monitora em tempo real
+
+- pkill <programa_aberto>: fecha o programa, porém tem o risco de voce fechar o programa errado se escrever incompleto
+- killall <programa_aberto>: fecha o programa, esse é mais seguro pois consegue fechar apenas se escrever exatamente certo o programa
