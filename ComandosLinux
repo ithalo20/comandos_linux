@@ -1,6 +1,11 @@
 Comandos em Linux:
 
+- man <comando>: Exibe o manual do comando, (exemplo: man uname), vai exibir todo manual do uname
+
 - uname -a: Exibe todas as informações do sistema
+
+- "cd /": Vai para o diretório raiz.
+- "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
 
 - sudo: é chamado para que um determinado comando seja executado com privilégios administrativos.
 - su: permite a troca de usuario, exemplo: su <ithalo>.
@@ -46,6 +51,7 @@ Comandos em Linux:
 
 - tail <arquivo>: Mostra as 10 ultimas linhas do arquivo
 - tail -5: Mostra as ultimas quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 ultimas linhas
+- tail -f: Consegue ver as alterações em tempo real no terminal das ultimas 10 linhas.
 
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
 - cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
@@ -54,8 +60,10 @@ Comandos em Linux:
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - editor (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
 - alias: consegue setar um comando persolizado (macro)
-- ssh -l <login> <nome da maquina virtual>: acesso remoto para uma maquina virtual.
-- ssh <login>@<nome_da_maquina_virtual>: acesso remoto para uma maquina virtual de um jeito alternativo.
+
+- ssh -l <login> <nome da maquina virtual>: acesso remoto da jump com as maquinas virtuais
+- ssh <login>@<nome_da_maquina_virtual>: acesso remoto da jump com as maquinas virtuais de um jeito alternativo.
+- ssh -i oci-pem ubuntu@<ipdaVDI>: Comando para acessar a vdi remotamente.
 
 - ps aux: Mostra as (PID) de TODOS os processos de TUDO, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)
 - ps axf: Mostra as (PID) de TODOS os processos de TUDO, em forma de arvore

@@ -1,0 +1,13 @@
+--- Os arquivos estão organizados em árvore ---
+
+O "/" é o diretório raiz, todos os outros estão embaixo dele, como o "/home", "/bin", "/dev", "/etc".
+O "~" significa que você está no seu usuario, na sua home usuario no caso.
+O "." antes da barra, significa que está especificando o diretório atual. (não precisamos especificar pro linux o ".", pois ele entende mesmo sem)
+O ".." após o cd, significa que estamos indo a um diretório anterior
+
+--- Caminho relativo e caminho absoluto ---
+
+Caminho relativo: É o caminho para uma pasta ou arquvo em relação ao seu diretório atual. Começam com "./" ou nada. (ex: cd Downloads), só funciona se eu tiver em uma pasta anterior a Downloads nesse ex
+Caminho absoluto: É o caminho para uma pasta ou arquivo em relação ao seu computador. Começa com "/". (ex: cd /home/ithalo/Downloads), ele funciona de qualquer local, pois o endereço é absoluto
+
+
