@@ -35,6 +35,8 @@ Comandos em Linux:
 - du: Mostra o tamanho do arquivo, diretorio, du -k (kb), du -m (mb), etc
 - df: Mostra o tamanho do Disco, lembre-se tem variante como du -h (human), etc
 
+- echo "mensagem": ira imprimir no terminal a mensagem que voce mandou após o echo.
+
 - more: Assim como o cat ele mostra o texto do arquivo, porém a diferença é se tiver faltando espaço ele mostra -mais-, ai vc fica apertando enter pra mostrar linha por linha do que falta.
 - more -5: vai mostrar a quantidade de linhas que eu pedi, poderia colocar mais linhas ou menos. (ex: more -10 <nome_arquivo> , vai mostrar 10 linhas do arquivo)
 - more +5: vai apagar as quantidade de linhas que eu pedi (ex more +10 <nome_arquivo>, vai apagar as dez primeiras linhas do arquivo).
@@ -45,10 +47,10 @@ Comandos em Linux:
 - tail <arquivo>: Mostra as 10 ultimas linhas do arquivo
 - tail -5: Mostra as ultimas quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 ultimas linhas
 
-
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
 - cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
-- touch <arquivo>: é usado para criar arquivos vazies, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
+
+- touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - editor (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
 - alias: consegue setar um comando persolizado (macro)
