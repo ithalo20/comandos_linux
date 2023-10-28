@@ -1,7 +1,8 @@
 Comandos em Linux:
 
---- Manual de comandos
+--- Manual de comandos e ajuda
 - man <comando>: Exibe o manual do comando, (exemplo: man uname), vai exibir todo manual do uname
+- <comando> --help: Abrirá a ajuda das outras variações do que o comando faz.
 
 --- Informações do Sistema Operacional
 - uname -a: Exibe todas as informações do sistema
@@ -10,7 +11,7 @@ Comandos em Linux:
 - "cd /": Vai para o diretório raiz.
 - "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
 
---- Troca de usuário, Remoção de programa e Modo root
+--- Troca de usuário, Deinstalação de programa e Modo root
 - sudo: é chamado para que um determinado comando seja executado com privilégios administrativos.
 - su: permite a troca de usuario, exemplo: su <ithalo>.
 - sudo su: entra no modo root
@@ -36,12 +37,20 @@ Comandos em Linux:
 - diff -i <arquivo1> <arquivo2>: Ele passa a não diferençar caracteres maiusculo e minúsculos.
 - diff -q <arquivo1> <arquivo2>: Apenas diz se o arquivo é diferente, ele não trás retorno algum.
 
+--- Calendario, data e hora
 - date: mostra a data atual, horario e o GMT que o sistema esta.
 - cal: mostra o calendario
-- ls: verifica todos os arquivos, lembre-se tem variatnes como ls -la (ve arquivos oculto), ls -ltr (mostra a data de criaçao), ls <nome do diretorio> para mostra o que tem nele, sem entrar.
+- ncal: mostra o calendario e o dia que estamos
+
+--- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
+- pwd: mostra o endereço/caminho que você está.
+- ls: verifica todos os arquivos, lembre-se tem varintes como ls -la (ve arquivos oculto), ls -ltr (mostra a data de criaçao), ls <nome do diretorio> para mostra o que tem nele, sem entrar.
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
+
+--- Criação de diretório, remoção de diretorio e arquivos, e move arquivo.
 - mkdir: cria diretórios
+- rm: Exclui diretorio, arquivos, etc
 - rm -rf: força a exclusão de arquivos, diretorios, etc
 - mv: consegue mover um arquivo ou modificar o nome, (ex mover: mv <arquivo> /endereço), (ex: renomear: mv <arquivo> <novoNomeDeArquivo>)
 
@@ -102,6 +111,9 @@ Comandos em Linux:
 
 --- Listagem de (PID) em tempo real
 - top: Mostra todos os processos listando o (PID) uso de memoria e tudo mais, como fosse um gerenciador de tarefa mesmo, diferente do ps que ele monitora em tempo real
+
+--- Abrir calculadora pelo terminal linux
+- gnome-calculator: Abre a calculadora.
 
 --- Fechar programas
 - pkill <programa_aberto>: fecha o programa, porém tem o risco de voce fechar o programa errado se escrever incompleto
