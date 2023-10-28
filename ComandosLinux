@@ -1,15 +1,23 @@
+Comandos de Atalhos:
+
+Crtl+L: Limpa o terminal
+Crtl+U: Apaga toda a linha que voce esta digitando
+Tab: Completa a palavra que você esta digitando
+
 Comandos em Linux:
 
 --- Manual de comandos e ajuda
 - man <comando>: Exibe o manual do comando, (exemplo: man uname), vai exibir todo manual do uname
 - <comando> --help: Abrirá a ajuda das outras variações do que o comando faz.
 
---- Informações do Sistema Operacional
+--- Informações do Sistema Operacional e Hardware
 - uname -a: Exibe todas as informações do sistema
+- neofetch: Mostra todas as informações de sistema e Hardware
 
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.
-- "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
+- "cd" ou "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
+- "cd ..": Vai para um diretório antes do atual.
 
 --- Troca de usuário, Deinstalação de programa e Modo root
 - sudo: é chamado para que um determinado comando seja executado com privilégios administrativos.
@@ -37,8 +45,10 @@ Comandos em Linux:
 - diff -i <arquivo1> <arquivo2>: Ele passa a não diferençar caracteres maiusculo e minúsculos.
 - diff -q <arquivo1> <arquivo2>: Apenas diz se o arquivo é diferente, ele não trás retorno algum.
 
---- Calendario, data e hora
+--- Calendario, data e hora.
 - date: mostra a data atual, horario e o GMT que o sistema esta.
+- date -s <mm/dd/yyyy>: altera a data mes, dia e ano.
+- date -s <hh:mm:ss>: altera o horario.
 - cal: mostra o calendario
 - ncal: mostra o calendario e o dia que estamos
 
@@ -109,11 +119,12 @@ Comandos em Linux:
 - ps axf: Mostra as (PID) de TODOS os processos de TUDO, em forma de arvore
 - ps -ux: Mostra as (PID) de todos os processos do USUARIO, diferente do aux que mostra de tudo, | grep para filtrar o processo e o (PID)
 
---- Listagem de (PID) em tempo real
+--- Listagem de (PID) em tempo real.
 - top: Mostra todos os processos listando o (PID) uso de memoria e tudo mais, como fosse um gerenciador de tarefa mesmo, diferente do ps que ele monitora em tempo real
+- htop: Mostra todos os processos listando o (PID) uso de memoria e tudo mais em tempo real, a diferença do top, é que ele é mais rico e permite fechar programas também.
 
 --- Abrir calculadora pelo terminal linux
-- gnome-calculator: Abre a calculadora.
+- gnome-calculator: Abre a calculadora, o nome oficial da calculadora do ubuntu é gnome calculator.
 
 --- Fechar programas
 - pkill <programa_aberto>: fecha o programa, porém tem o risco de voce fechar o programa errado se escrever incompleto
