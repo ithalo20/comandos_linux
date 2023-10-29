@@ -3,11 +3,26 @@
 O "/" é o diretório raiz, todos os outros estão embaixo dele, como o "/home", "/bin", "/dev", "/etc".
 O "~" significa que você está no seu usuario, na sua home usuario no caso.
 O "." antes da barra, significa que está especificando o diretório atual. (não precisamos especificar pro linux o ".", pois ele entende mesmo sem)
-O ".." após o cd, significa que estamos indo a um diretório anterior
+O ".." após o cd, significa que estamos indo a um diretório anterior, se usar ../.. irá dois diretorios antes, e assim consecutivamente
 
 --- Caminho relativo e caminho absoluto ---
 
 Caminho relativo: É o caminho para uma pasta ou arquvo em relação ao seu diretório atual. Começam com "./" ou nada. (ex: cd Downloads), só funciona se eu tiver em uma pasta anterior a Downloads nesse ex
 Caminho absoluto: É o caminho para uma pasta ou arquivo em relação ao seu computador. Começa com "/". (ex: cd /home/ithalo/Downloads), ele funciona de qualquer local, pois o endereço é absoluto
 
+--- Saber usar o manual é uma skill importante ---
 
+É no manual que descobrimos que argumentos que um comando leva, Ele é divido em várias seções, mas as mais importantes são:
+
+Name: Nome completo do comando
+Synopsis: Mostra que argumentos o comando leva
+Description: Explica de forma mais completa o NAME e a SYNOPSIS
+
+--- Um dos argumentos se chama [OPTIONS] "opção"
+
+As opções podem ser abreviadas ou completas. Na abreviação usamos somente "-" seguido de uma letra (ex.: "ls -h"). E de forma completa usamos "--" seguido de uma palavra (ex.: "ls --human-readable")
+
+--- Combinando [OPTIONS] "opções"
+
+Você pode digitar mais de uma opção de uma vez. Ex.: Ao invés de digitar "ls-l-h" (até pq isso não é possivel), basta digitar "ls-lh" que o terminal vai entender que sao dois argumentos abreviados.
+Cuidado é diferente de "ls --help" de "ls -help". Nessa segunda ocasião o terminal entende como "ls -h-e-l-p" (que não existe)

@@ -1,10 +1,15 @@
-Comandos de Atalhos:
+Comandos FORA do terminal Linux:
+
+Crtl+H: Usado em um diretório ele mostrará os arquivos ocultos.
+
+Comandos no terminal Linux:
+
+--- Comandos de Atalhos
 
 Crtl+L: Limpa o terminal
 Crtl+U: Apaga toda a linha que voce esta digitando
+Crtl+D: Se voce entrar em alguma maquina, virar root, etc, o Crtl+D vai voltar um acesso antes, se n tiver dentro de nenhum acesso ele fecha o terminal.
 Tab: Completa a palavra que você esta digitando
-
-Comandos em Linux:
 
 --- Manual de comandos e ajuda
 - man <comando>: Exibe o manual do comando, (exemplo: man uname), vai exibir todo manual do uname
@@ -17,10 +22,10 @@ Comandos em Linux:
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.
 - "cd" ou "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
-- "cd ..": Vai para um diretório antes do atual.
+- "cd ..": Vai para um diretório antes do atual, ../.. irá dois diretorios antes, e assim consecutivamente.
 
---- Troca de usuário, Deinstalação de programa e Modo root
-- sudo: é chamado para que um determinado comando seja executado com privilégios administrativos.
+--- Troca de usuário, Desinstalação de programa, Execução sudo e Modo root
+- sudo: é chamado para que um determinado comando seja executado com privilégios administrativos, ou perfil.
 - su: permite a troca de usuario, exemplo: su <ithalo>.
 - sudo su: entra no modo root
 - sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser.
@@ -48,13 +53,24 @@ Comandos em Linux:
 --- Calendario, data e hora.
 - date: mostra a data atual, horario e o GMT que o sistema esta.
 - date -s <mm/dd/yyyy>: altera a data mes, dia e ano.
-- date -s <hh:mm:ss>: altera o horario.
+- date -s <hh:mm:ss>: altera o horario
 - cal: mostra o calendario
 - ncal: mostra o calendario e o dia que estamos
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
 - pwd: mostra o endereço/caminho que você está.
-- ls: verifica todos os arquivos, lembre-se tem varintes como ls -la (ve arquivos oculto), ls -ltr (mostra a data de criaçao), ls <nome do diretorio> para mostra o que tem nele, sem entrar.
+- ls: verifica todos os arquivos, lembre-se tem varintes como ls -la (ve arquivos oculto)
+- ls <nome do diretorio>: para mostra o que tem nele, sem entrar (FUNCIONA COM AS OUTRAS VARIAÇÕES ABAIXO).
+- ls -a: Mostra TODOS os arquivos até os ocultos, porém não mostra como o -la que no caso seria em linhas, pois o "-l" que faz ficar na forma de lista.
+- ls -t: Mostra os arquivos em ordem de tempo de criação
+- ls -r: Inverte a ordem.
+- ls -h: Usado junto com o parametro "-l" ele mostra as informações como kilobytes para facilitar a interpretação humana do tamanho do arquivo.
+- ls -l: Mostra os arquivos em ordem de linha e ja com informações de permissões, data de criação, ordem alfabetica etc.
+- ls -la: mostra TODOS os arquivos ja com as permissões, data de criação, ordem alfabética e o peso dos arquivos. por conta do parametro "-a" = all
+- ls -lta: Mostra TODOS os arquivos inclusive ocultos em ordem tempo, por conta da parametro "-t", "-a" = all
+- ls -ltr: Mostra os arquivos ja com as permissoes, peso dos arquivos, em ordem de CRIAÇÃO REVERSA, por conta do parametro "-t" = time, -r" = reverse
+- ls -lh: mostra os arquivos ja com as permissões, data de criação, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
+
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
 
@@ -77,7 +93,6 @@ Comandos em Linux:
 --- Imprimir mensagem no terminal
 - echo "mensagem": ira imprimir no terminal a mensagem que voce mandou após o echo.
 
-
 --- Ler prosseguindo com teclado. 
 - more: Assim como o cat ele mostra o texto do arquivo, porém a diferença é se tiver faltando espaço ele mostra -mais-, ai vc fica apertando enter pra mostrar linha por linha do que falta.
 - more -5: vai mostrar a quantidade de linhas que eu pedi, poderia colocar mais linhas ou menos. (ex: more -10 <nome_arquivo> , vai mostrar 10 linhas do arquivo)
@@ -87,12 +102,10 @@ Comandos em Linux:
 - head <arquivo>: Mostra as 10 primeiras linhas do arquivo
 - head -5 <arquivo>: Mostra as primeiras quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 primeiras linhas
 
-
 --- Ler ultimas linhas do arquivo e também em tempo real 
 - tail <arquivo>: Mostra as 10 ultimas linhas do arquivo
 - tail -5: Mostra as ultimas quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 ultimas linhas
 - tail -f: Consegue ver as alterações em tempo real no terminal das ultimas 10 linhas.
-
 
 --- Criar arquivo, editar arquivo e texto, ler arquivo
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
@@ -107,12 +120,16 @@ Comandos em Linux:
 --- Abrir arquivo (não programa)
 - open <arquivo>: vai abrir o ARQUIVO (não programa), fora do terminal, igual o Start-process do windows.
 
--- Acesso Jump:
+
+-- Acesso a Jump | Login remoto do cliente:
+- ssh: Login remoto do cliente
 - ssh -l <login> <nome da maquina virtual>: acesso remoto da jump com as maquinas virtuais
 - ssh <login>@<nome_da_maquina_virtual>: acesso remoto da jump com as maquinas virtuais de um jeito alternativo.
+*Bonus: parametro -l significa login_name após do paramentro "l", por isso usamos -l (tem no <man ssh> os parametros)*
 
 -- Acessar VDI remotamente (antes fazer a jump):
 - ssh -i oci-pem ubuntu@<ipdaVDI>: Comando para acessar a vdi remotamente.
+*Bonus: parametro -i significa identify_file após do parametro "i", por isso usamos -i a que oci.pem é um arquivo (tem no <man ssh> os parametros)*
 
 -- Listagem de (PID)
 - ps aux: Mostra as (PID) de TODOS os processos de TUDO, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)
