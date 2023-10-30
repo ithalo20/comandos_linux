@@ -18,11 +18,81 @@ Name: Nome completo do comando
 Synopsis: Mostra que argumentos o comando leva
 Description: Explica de forma mais completa o NAME e a SYNOPSIS
 
---- Um dos argumentos se chama [OPTIONS] "opção"
+--- Um dos argumentos se chama [OPTIONS] "opção" ---
 
 As opções podem ser abreviadas ou completas. Na abreviação usamos somente "-" seguido de uma letra (ex.: "ls -h"). E de forma completa usamos "--" seguido de uma palavra (ex.: "ls --human-readable")
 
 --- Combinando [OPTIONS] "opções"
 
-Você pode digitar mais de uma opção de uma vez. Ex.: Ao invés de digitar "ls-l-h" (até pq isso não é possivel), basta digitar "ls-lh" que o terminal vai entender que sao dois argumentos abreviados.
+Você pode digitar mais de uma opção de uma vez. Ex.: Ao invés de digitar "ls -l-h", basta digitar "ls-lh" que o terminal vai entender que sao dois argumentos abreviados.
 Cuidado é diferente de "ls --help" de "ls -help". Nessa segunda ocasião o terminal entende como "ls -h-e-l-p" (que não existe)
+
+--- As regras dos argumentos ---
+
+bold text (texto boldo/negrito): Significa que esse argumento deve ser ESCRITO DO JEITO QUE ESTÁ.
+Texto italico: Significa que ele deve ser trocado depois para um nome VÁLIDO, OBRIGATÓRIO ___.
+[Texto entre colchetes]: Significa que é argumento OPCIONAL [].
+Texto com 3 pontos ... : Pode ser usado MAIS DE UMA VEZ. (ex: ls -la), eu usei mais de um argumento, logo pode ser usado MAIS DE UMA VEZ, quando não temos os "...", só pode ser usado um argumento.
+
+--- 90% dos seus problemas podem ser resolvidos com um "sudo apt install <programa>" ---
+--- DPKG vs APT, Gerenciamento de pacotes ---
+
+Linux que são derivados do Debian possuem 2 gerenciadores de software: DPKG e o APT. Os 2 instalam novos pacotes, mas o DPKG não instala as dependências desse seu pacote.
+PS: Os 2 precisam de SUDO antes (permissão de super usuário)
+
+-- Como cada um funciona?
+
+DPKG: Simplesmente instala um arquivo .deb que estiver no seu computador (LOCAL), ele não procura por dependências e nem consulta repositórios. (ex.: sudo dpkg -i discord-0.0.32.deb). 
+APT: Ele busca o pacote nos repositórios oficiais do seu Linux, e caso ele exista, também busca as dependências dele, Então ele baixa esses pacotes (que vem com a extensão .deb) e os instala com o dpkg
+
+-- DPKG (Debian Package)
+
+sudo dpkg -i <pacote>: Instala o pacote
+sudo dpkg -r <pacote>: Remove o pacote
+sudo dpkg --purge <pacote>: Remove o pacote e todas as suas referências no sistema
+dpkg -l: Lista todos os pacotes instalados.
+
+-- APT (Advanced Packaging Tool)
+
+Procura o pacote nos repositórios oficiais que estão no	arquivo /etc/apt/soruce.list e nos repositórios de terceiros (adicionados na pasta /etc/apt/sources.list.d/)
+
+sudo apt install <pacote>: Instala o pacote e suas dependências, até mesmo consegue baixar as dependencias só, basta escrever a dependencia no lugar do <pacote>
+sudo apt update: Atualiza informações de software do seu PC, ele fica apenas CIENTE que tem atualizações como ele mapeasse as coisas novas, porém ele nao baixa e nem instala essas atualizações.
+sudo apt upgrade: Atualiza todos os softwares, após o UPDATE lista as novas atualizações, ai damos um UPGRADE para baixar e instalar as novas atualizações.
+
+-- APT-CACHE
+
+sudo apt-cache search <pacote>: Procura os pacotes pelo nome, ai vai mostrar os pacotes disponiveis.
+sudo apt-cacho show <pacote>: Mostrará as informações do pacote que você está pesquisando.
+
+--- Quando usar um ou outro?
+
+Geralmente é preferivel fazer o seguinte quando instalar um software: veja o tutorial do download no site da empresa. Se pedir para usar o apt, resolva tudo com sudo apt install.
+Mas as vezes o site pede para você baixar um .deb, aí nesse caso use "dpkg -i <pacote.deb>" e se der problema de dependência, use "sudo apt install -f", esse apt install -f ele verificará a uma instalação que você fez e ira procurar no repositório todas as dependencias, e ira instalar aquela que está faltando, assim consertando o erro.
+
+--- Existem outras formas de instalar softwares?
+
+-- Site oficial
+
+Existem muito softwares que não estão nos repositórios oficiais do Linux, principalmente softwares proprietários. Nesse caso eu recomenda-se acessar diretamente o site da empresa e checar o procedimento para a instalação.
+
+Repositorío oficial fica em: etc/apt/source.list, só dar um nano ou vim para ver os sites que servem de repositórios.
+
+-- Adicionando repositórios de terceiros
+
+Muitas vezes o site da empresa pede para você colar 2 linhas no seu terminal: 1 para adicionar a chave GPG deles nas chaves reconnhecidas pelo seu apt, e 1 para adicionar o REPOSITÓRIO DELES no seu PC. E logo em seugidar dar um sudo apt update para atualizar os repositórios reconhecidos pelo seu PC.
+Geralmente esse processo vai salvar a CHAVE GPG no diretório /etc/apt/trusted.gpg.d/ e o REPOSITÓRIO em /etc/apt/source.list.d/. (Nota: Geralmentea GPG começa com "curl" e o repositório com "echo")
+
+Ex.: Ao instalarmos o brave (navegador), criamos os arquivos CHAVE GPG /etc/apt/trusted,gpd.d/brave-browser-release.gpg e o REPOSITÓRIO /etc/apt/sources.list.d/brave-browser-release-trusty.list
+
+-- Snap store
+
+Uma outra opção para baixar softwares para o linux é através da snap store, que é uma espécie de APP store para linux (criada pela canonical). Todos os aplicativos mais famosos estão lá. A loja do ubuntu baixa tudo de lá.
+
+caso o aplicativo tem na Snap store e você nao quer abrir, basta voce colocar sudo snap <nome_app> install (ex.: sudo snap spotify install)
+
+Antes de usar é necessario ter um pacote chamado snapd, através do terminal "sudo apt install snapd". 
+Já instalado é só utilizar "sudo snap <app> install" ou caso deseja usar a loja snap store e baixar por lá, você pode usar (sudo snap install snap-store), ai você consegue usar a loja com a interface.
+
+
+

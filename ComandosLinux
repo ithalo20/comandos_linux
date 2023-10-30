@@ -19,16 +19,33 @@ Tab: Completa a palavra que você esta digitando
 - uname -a: Exibe todas as informações do sistema
 - neofetch: Mostra todas as informações de sistema e Hardware
 
+--- Donwloads, instalações, listar atualizações, baixar e instalar atualizações e desinstalação (APT, APT-CACHE e DPKG)
+
+- sudo apt install <pacote>: Ele busca o pacote nos repositórios oficiais do seu Linux, e caso ele exista, também busca as dependências dele, Então ele BAIXA esses pacotes (que vem com a extensão .deb) e  os INSTALA com o dpkg por baixo dos panos, LEMBRE-SE consigo baixar a dependencia solo, basta colocar o nome da dependencia no lugar do <pacote>
+- sudo apt update: Atualiza as informações de software do seu PC
+- sudo apt upgrade: Atualiza todos os softwares.
+- sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser, que foi instalado em apt.
+- sudo apt update: Atualiza informações de software do seu PC, ele fica apenas CIENTE que tem atualizações como ele mapeasse as coisas novas, porém ele nao baixa e nem instala essas atualizações.
+- sudo apt upgrade: Atualiza todos os softwares, usar após o APT UPDATE para listar as novas atualizações, ai damos um UPGRADE para baixar e instalar as novas atualizações.
+- sudo apt update && sudo apt upgrade: É igual programação && significa "and", ira listar as atualizações do repositório e depois ira baixar e instalar as atualizações.
+
+- sudo apt-cache search <pacote>: Procura os pacotes pelo nome, ai vai mostrar os pacotes disponiveis.
+- sudo apt-cache show <pacote>: Mostrará as informações do pacote que você está pesquisando.
+
+- sudo dpkg -i <pacote.deb>: Ira INSTALAR o pacote que vc fez download do (.deb) então ele instala esse arquivo LOCAL de seu PC, o -i é install package file.
+- sudo dpkg -r <pacote.deb>: Irá REMOVER o pacote, -r é remove package file.
+- sudo dpkg --purge <pacote. deb>: Irá REMOVER o pacotE e tambem REMOVERÁ TODOS OS RESTÍGIOS., caches e tudo mais (MAIS RECOMENDADO)
+- sudo dpkg -l: Lista todos os pacotes instalados.
+
+--- Troca de usuário, Desinstalação de programa, Execução sudo e Modo root
+- sudo: é chamado para que um determinado comando seja executado como privilégio de super usuário, como fosse o administrador do Windows. sudo (super user direct order OU super user do)
+- su: permite a troca de usuario, exemplo: su <ithalo>.
+- sudo su: entra no modo root, super usuario.
+
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.
 - "cd" ou "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
 - "cd ..": Vai para um diretório antes do atual, ../.. irá dois diretorios antes, e assim consecutivamente.
-
---- Troca de usuário, Desinstalação de programa, Execução sudo e Modo root
-- sudo: é chamado para que um determinado comando seja executado com privilégios administrativos, ou perfil.
-- su: permite a troca de usuario, exemplo: su <ithalo>.
-- sudo su: entra no modo root
-- sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser.
 
 --- Desligar e Reiniciar computador
 - shutdown now: desliga o computador instantaneamente
@@ -64,12 +81,13 @@ Tab: Completa a palavra que você esta digitando
 - ls -a: Mostra TODOS os arquivos até os ocultos, porém não mostra como o -la que no caso seria em linhas, pois o "-l" que faz ficar na forma de lista.
 - ls -t: Mostra os arquivos em ordem de tempo de criação
 - ls -r: Inverte a ordem.
-- ls -h: Usado junto com o parametro "-l" ele mostra as informações como kilobytes para facilitar a interpretação humana do tamanho do arquivo.
-- ls -l: Mostra os arquivos em ordem de linha e ja com informações de permissões, data de criação, ordem alfabetica etc.
-- ls -la: mostra TODOS os arquivos ja com as permissões, data de criação, ordem alfabética e o peso dos arquivos. por conta do parametro "-a" = all
+- ls -h: Usado junto com o parametro "-l" ele mostra as informações como kilobytes, megabytes, gigabytes para facilitar a interpretação humana do tamanho do arquivo.
+- ls -l: Mostra os arquivos em ordem de linha e ja com informações de permissões, data de ultima alteração, ordem alfabetica etc.
+- ls -la: mostra TODOS os arquivos ja com as permissões, data de ultima alteração, ordem alfabética e o peso dos arquivos. por conta do parametro "-a" = all
 - ls -lta: Mostra TODOS os arquivos inclusive ocultos em ordem tempo, por conta da parametro "-t", "-a" = all
-- ls -ltr: Mostra os arquivos ja com as permissoes, peso dos arquivos, em ordem de CRIAÇÃO REVERSA, por conta do parametro "-t" = time, -r" = reverse
-- ls -lh: mostra os arquivos ja com as permissões, data de criação, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
+- ls -ltr: Mostra os arquivos ja com as permissoes, peso dos arquivos, em ordem de DATA DE ALTERAÇÃO REVERSA, por conta do parametro "-t" = time, -r" = reverse
+- ls -lh: mostra os arquivos ja com as permissões, data de alteração, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
+- ls --color=auto: Ele vai colocar cores em arquivos respectivamente conforme o seu tipo (terminal ja faz isso automaticamente), temos outras variantes como --color=never para nunca colocar cores
 
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
@@ -112,10 +130,10 @@ Tab: Completa a palavra que você esta digitando
 - cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
 - touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
-- editor (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
+- nano (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
 
 -- Setagem de comando
-- alias: consegue setar um comando persolizado (macro)
+- alias: ele é um atalho para fazer um comando apenas digitando poucas coisas como, ll ele faz uma coisa e por ai vai.
 
 --- Abrir arquivo (não programa)
 - open <arquivo>: vai abrir o ARQUIVO (não programa), fora do terminal, igual o Start-process do windows.
@@ -130,6 +148,11 @@ Tab: Completa a palavra que você esta digitando
 -- Acessar VDI remotamente (antes fazer a jump):
 - ssh -i oci-pem ubuntu@<ipdaVDI>: Comando para acessar a vdi remotamente.
 *Bonus: parametro -i significa identify_file após do parametro "i", por isso usamos -i a que oci.pem é um arquivo (tem no <man ssh> os parametros)*
+
+--- Status do Sistema:
+
+systemctl: Vai ver listar todos os sistemas que estão operando.
+systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi informado.
 
 -- Listagem de (PID)
 - ps aux: Mostra as (PID) de TODOS os processos de TUDO, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)
@@ -146,3 +169,12 @@ Tab: Completa a palavra que você esta digitando
 --- Fechar programas
 - pkill <programa_aberto>: fecha o programa, porém tem o risco de voce fechar o programa errado se escrever incompleto
 - killall <programa_aberto>: fecha o programa, esse é mais seguro pois consegue fechar apenas se escrever exatamente certo o programa
+
+
+
+
+
+
+
+.bashrc é o arquivo oculto onde fica as configurações pre setadas do alias, conseguimos abrir ele com o vim, toda vez que damos ls, na real estamos dando ls --color=auto, pq é um alias.
+cd ~/.bashrc
