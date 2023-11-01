@@ -94,14 +94,19 @@ Tab: Completa a palavra que você esta digitando
 
 --- Criação de diretório, remoção de diretorio e arquivos, e move arquivo.
 - mkdir: cria diretórios
+- mkdir -p: consegue criar varios diretorios dentro do outro
 - rm: Exclui diretorio, arquivos, etc
 - rm -rf: força a exclusão de arquivos, diretorios, etc
 - mv: consegue mover um arquivo ou modificar o nome, (ex mover: mv <arquivo> /endereço), (ex: renomear: mv <arquivo> <novoNomeDeArquivo>)
 
 
---- Copia
+--- Copiar
 - cp: Faz uma copia seja na mesma pasta, ou em algum outro endereço, -r é para diretorio (ex: cp <nome> <copia>)(ex: cp <nome> /endereço)(copia de diretorio ex: cp -r <nome> <nomedacopia>) (ex: cp -r <nome> /endereço)
-- scp: Mesma função do cp, a diferença fica que é usado para servidores, entao vc consegue jogar de um servidor para o outro por scp
+
+- scp (Secure Copy): Mesma função do cp, a diferença fica que é usado para servidores, entao vc consegue jogar de uma maquina local para um servidor.
+exemplo de scp: scp [other options] [source username@IP]:/[directory and file name] [destination username@IP]:/[destination directory]
+		scp -p root@162.168.1.1:/media/scp.png edward@162.168.1.2:/desktop/destination
+
 
 --- Consumo de memória, tamanho do arquivo, tamanho de disco
 - free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
@@ -125,12 +130,13 @@ Tab: Completa a palavra que você esta digitando
 - tail -5: Mostra as ultimas quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 ultimas linhas
 - tail -f: Consegue ver as alterações em tempo real no terminal das ultimas 10 linhas.
 
---- Criar arquivo, editar arquivo e texto, ler arquivo
+--- Criar arquivo, editar arquivo e texto, ler arquivo, criar link-simbolico
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
 - cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
 - touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - nano (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
+- ln -s <enereço_do_diretorio> <nome_do_link_simbolico>: Ira criar um link simbolico daquele endereço que você deseja, desde diretório até arquivos.
 
 -- Setagem de comando
 - alias: ele é um atalho para fazer um comando apenas digitando poucas coisas como, ll ele faz uma coisa e por ai vai.
