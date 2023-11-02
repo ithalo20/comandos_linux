@@ -1,16 +1,16 @@
---- Os arquivos estão organizados em árvore ---
+--- Os arquivos estão organizados em árvore (1) ---
 
 O "/" é o diretório raiz, todos os outros estão embaixo dele, como o "/home", "/bin", "/dev", "/etc".
 O "~" significa que você está no seu usuario, na sua home usuario no caso.
 O "." antes da barra, significa que está especificando o diretório atual. (não precisamos especificar pro linux o ".", pois ele entende mesmo sem)
 O ".." após o cd, significa que estamos indo a um diretório anterior, se usar ../.. irá dois diretorios antes, e assim consecutivamente
 
---- Caminho relativo e caminho absoluto ---
+-- Caminho relativo e caminho absoluto ---
 
 Caminho relativo: É o caminho para uma pasta ou arquvo em relação ao seu diretório atual. Começam com "./" ou nada. (ex: cd Downloads), só funciona se eu tiver em uma pasta anterior a Downloads nesse ex
 Caminho absoluto: É o caminho para uma pasta ou arquivo em relação ao seu computador. Começa com "/". (ex: cd /home/ithalo/Downloads), ele funciona de qualquer local, pois o endereço é absoluto
 
---- Saber usar o manual é uma skill importante ---
+-- Saber usar o manual é uma skill importante ---
 
 É no manual que descobrimos que argumentos que um comando leva, Ele é divido em várias seções, mas as mais importantes são:
 
@@ -18,23 +18,25 @@ Name: Nome completo do comando
 Synopsis: Mostra que argumentos o comando leva
 Description: Explica de forma mais completa o NAME e a SYNOPSIS
 
---- Um dos argumentos se chama [OPTIONS] "opção" ---
+-- Um dos argumentos se chama [OPTIONS] "opção" ---
 
 As opções podem ser abreviadas ou completas. Na abreviação usamos somente "-" seguido de uma letra (ex.: "ls -h"). E de forma completa usamos "--" seguido de uma palavra (ex.: "ls --human-readable")
 
---- Combinando [OPTIONS] "opções"
+-- Combinando [OPTIONS] "opções"
 
 Você pode digitar mais de uma opção de uma vez. Ex.: Ao invés de digitar "ls -l-h", basta digitar "ls-lh" que o terminal vai entender que sao dois argumentos abreviados.
 Cuidado é diferente de "ls --help" de "ls -help". Nessa segunda ocasião o terminal entende como "ls -h-e-l-p" (que não existe)
 
---- As regras dos argumentos ---
+-- As regras dos argumentos ---
 
 bold text (texto boldo/negrito): Significa que esse argumento deve ser ESCRITO DO JEITO QUE ESTÁ.
 Texto italico: Significa que ele deve ser trocado depois para um nome VÁLIDO, OBRIGATÓRIO ___.
 [Texto entre colchetes]: Significa que é argumento OPCIONAL [].
 Texto com 3 pontos ... : Pode ser usado MAIS DE UMA VEZ. (ex: ls -la), eu usei mais de um argumento, logo pode ser usado MAIS DE UMA VEZ, quando não temos os "...", só pode ser usado um argumento.
 
---- 90% dos seus problemas podem ser resolvidos com um "sudo apt install <programa>" ---
+
+
+--- 90% dos seus problemas podem ser resolvidos com um "sudo apt install <programa>" (2) ---
 --- DPKG vs APT, Gerenciamento de pacotes ---
 
 Linux que são derivados do Debian possuem 2 gerenciadores de software: DPKG e o APT. Os 2 instalam novos pacotes, mas o DPKG não instala as dependências desse seu pacote.
@@ -65,12 +67,12 @@ sudo apt upgrade: Atualiza todos os softwares, após o UPDATE lista as novas atu
 sudo apt-cache search <pacote>: Procura os pacotes pelo nome, ai vai mostrar os pacotes disponiveis.
 sudo apt-cacho show <pacote>: Mostrará as informações do pacote que você está pesquisando.
 
---- Quando usar um ou outro?
+-- Quando usar um ou outro? --
 
 Geralmente é preferivel fazer o seguinte quando instalar um software: veja o tutorial do download no site da empresa. Se pedir para usar o apt, resolva tudo com sudo apt install.
 Mas as vezes o site pede para você baixar um .deb, aí nesse caso use "dpkg -i <pacote.deb>" e se der problema de dependência, use "sudo apt install -f", esse apt install -f ele verificará a uma instalação que você fez e ira procurar no repositório todas as dependencias, e ira instalar aquela que está faltando, assim consertando o erro.
 
---- Existem outras formas de instalar softwares?
+-- Existem outras formas de instalar softwares? --
 
 -- Site oficial
 
@@ -96,3 +98,29 @@ Já instalado é só utilizar "sudo snap <app> install" ou caso deseja usar a lo
 
 
 
+--- Editores, que editores existem? (3) ---
+
+Nano: O nano é o mais é a mais facil de todas de aprender. Assim que você abre ele todos os comandos disponíveis ficam na parte	debaixa da tela.
+Vim: Temido por muitos. e amado por alguns, é de LONGE o editor mais completo e complexo de todos.
+Emacs: Por padrão ele vem com interface gráfica, e a versão dele sem interface não é tao boa como o nano e vim.
+
+-- Usando o Nano
+
+"^" significa Crtl e "M" significa alt. Crtl+G: Ajuda, Crtl+O: Salvar, Crtl+X: Sair, Crtl+R: Ler arquivo (Ele importa os textos dentro do arquivo), Alt+U: Undo (Crtl+Z), Alt+E: Redo (Crtl+Y).
+Tem que ler a ajuda para descobrir mais todos os comandos que você precisa.
+
+-- Usando o Vim (obs*: Existe o nvim que é o sucessor do vim)
+
+Primeiramente baixe o vim com "sudo apt instal vim". E digite "vimtutor" no terminal, ele é um tutorial interativo fantástico.
+Para mover o cursor, use as setinhas do teclado ou "h","j","k" e "l"
+Para sair do vim digite ":q" ou ":q!" para sair sem salvar as suas alterações. LEMBRANDO que você tem que estar em modo normal, então aperte ESC.
+Para salvar o vim digite ":w"ou ":w!"
+Para salvar e sair digite ":wq" ou ":wq!"
+
+Obs*: DD no modo normal: Apaga uma linha por completo, CC no modo normal: Apaga uma linha por completo e ja deixa o curso preparado para escrever na mesma linha vazia, Shift+G: Desce toda a página.
+-- Os modos do vim
+
+NORMAL: Serve para entrar nos outros modos, se movimentar no arquivo e rodar comandos mais básicos. Aperte ESC para entrar nele.
+INSERÇÃO: Insere texto. Digite "i" quando estiver no modo normal, para entrar no modo inserção.
+COMANDO: É um modo que aceita comandos. Para entrar nele digite ":" no modo normal.
+VISUAL: Seleciona os textos desejados. Digite "v" quando estiver no modo normal.

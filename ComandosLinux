@@ -9,6 +9,7 @@ Comandos no terminal Linux:
 Crtl+L: Limpa o terminal
 Crtl+U: Apaga toda a linha que voce esta digitando
 Crtl+D: Se voce entrar em alguma maquina, virar root, etc, o Crtl+D vai voltar um acesso antes, se n tiver dentro de nenhum acesso ele fecha o terminal.
+Crtl+Shift+T: Abre mais uma aba de terminal.
 Tab: Completa a palavra que você esta digitando
 
 --- Manual de comandos e ajuda
