@@ -15,12 +15,15 @@ Tab: Completa a palavra que você esta digitando
 --- Manual de comandos e ajuda
 - man <comando>: Exibe o manual do comando, (exemplo: man uname), vai exibir todo manual do uname
 - <comando> --help: Abrirá a ajuda das outras variações do que o comando faz.
+- whatis <comando>: Ele fala de forma grosseiramente curta o que o comando significa.
 
---- Informações do Sistema Operacional e Hardware
+--- Informações do Sistema Operacional, Hardware e quem esta logado.
 - uname -a: Exibe todas as informações do sistema
-- neofetch: Mostra todas as informações de sistema e Hardware
+- neofetch: Mostra todas as informações de sistema e Hardware	
+- who: Exibe quem está logado no momento
+- w: Exibe quem esta logado e mais informações
 
---- Donwloads, instalações, listar atualizações, baixar e instalar atualizações e desinstalação (APT, APT-CACHE e DPKG)
+--- Donwloads, instalações, listar atualizações, baixar e instalar atualizações, baixar arquivos da net para o pc local e desinstalação (APT, APT-CACHE e DPKG)
 
 - sudo apt install <pacote>: Ele busca o pacote nos repositórios oficiais do seu Linux, e caso ele exista, também busca as dependências dele, Então ele BAIXA esses pacotes (que vem com a extensão .deb) e  os INSTALA com o dpkg por baixo dos panos, LEMBRE-SE consigo baixar a dependencia solo, basta colocar o nome da dependencia no lugar do <pacote>
 - sudo apt update: Atualiza as informações de software do seu PC
@@ -37,6 +40,8 @@ Tab: Completa a palavra que você esta digitando
 - sudo dpkg -r <pacote.deb>: Irá REMOVER o pacote, -r é remove package file.
 - sudo dpkg --purge <pacote. deb>: Irá REMOVER o pacotE e tambem REMOVERÁ TODOS OS RESTÍGIOS., caches e tudo mais (MAIS RECOMENDADO)
 - sudo dpkg -l: Lista todos os pacotes instalados.
+
+- wget <url>: Vai baixar a página para o seu PC (BAIXA NO DIRETORIO ATUAL)
 
 --- Troca de usuário, Desinstalação de programa, Execução sudo e Modo root
 - sudo: é chamado para que um determinado comando seja executado como privilégio de super usuário, como fosse o administrador do Windows. sudo (super user direct order OU super user do)
@@ -74,9 +79,12 @@ Tab: Completa a palavra que você esta digitando
 - date -s <hh:mm:ss>: altera o horario
 - cal: mostra o calendario
 - ncal: mostra o calendario e o dia que estamos
+- timedatectl: Mostra todas as informações acima.
+- timedatectl set-local-rtc 1 --adjust-system-clock: Vai deixar o horario do PC local em vez de usar o da nuvem (caso der problema de horario de +3 no windows, USAR esse comando de horario local)
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
 - pwd: mostra o endereço/caminho que você está.
+- whick <nome_programa>: Mostra o caminho do programa especificado.
 - ls: verifica todos os arquivos, lembre-se tem varintes como ls -la (ve arquivos oculto)
 - ls <nome do diretorio>: para mostra o que tem nele, sem entrar (FUNCIONA COM AS OUTRAS VARIAÇÕES ABAIXO).
 - ls -a: Mostra TODOS os arquivos até os ocultos, porém não mostra como o -la que no caso seria em linhas, pois o "-l" que faz ficar na forma de lista.
@@ -89,7 +97,6 @@ Tab: Completa a palavra que você esta digitando
 - ls -ltr: Mostra os arquivos ja com as permissoes, peso dos arquivos, em ordem de DATA DE ALTERAÇÃO REVERSA, por conta do parametro "-t" = time, -r" = reverse
 - ls -lh: mostra os arquivos ja com as permissões, data de alteração, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
 - ls --color=auto: Ele vai colocar cores em arquivos respectivamente conforme o seu tipo (terminal ja faz isso automaticamente), temos outras variantes como --color=never para nunca colocar cores
-
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
 
@@ -100,6 +107,12 @@ Tab: Completa a palavra que você esta digitando
 - rm -rf: força a exclusão de arquivos, diretorios, etc
 - mv: consegue mover um arquivo ou modificar o nome, (ex mover: mv <arquivo> /endereço), (ex: renomear: mv <arquivo> <novoNomeDeArquivo>)
 
+--- Contagem de linhas, palavras, tamanho do arquivo.
+
+wc <arquivo>: "Word count", como o nome sugere, ele retorna o números de palavras em um arquivo que contem texto
+ex: "wc long.txt", resultado: 37 207 1000 long.txt, isso significa: 37 linhas, 207 palavras e 1000 bytes e <nome do arquivo>
+
+wc -w <arquivo>: A diferença do wc é que com o argumento -w, ele mostra apenas a quantidade de PALAVRAS e o NOME.man
 
 --- Copiar
 - cp: Faz uma copia seja na mesma pasta, ou em algum outro endereço, -r é para diretorio (ex: cp <nome> <copia>)(ex: cp <nome> /endereço)(copia de diretorio ex: cp -r <nome> <nomedacopia>) (ex: cp -r <nome> /endereço)
@@ -142,9 +155,9 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 -- Setagem de comando
 - alias: ele é um atalho para fazer um comando apenas digitando poucas coisas como, ll ele faz uma coisa e por ai vai.
 
---- Abrir arquivo (não programa)
+--- Abrir arquivo (não programa) e executar programa.
 - open <arquivo>: vai abrir o ARQUIVO (não programa), fora do terminal, igual o Start-process do windows.
-
+- ./<executavel>: Executa um programa.
 
 -- Acesso a Jump | Login remoto do cliente:
 - ssh: Login remoto do cliente

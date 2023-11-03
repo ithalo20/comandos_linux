@@ -113,14 +113,29 @@ Tem que ler a ajuda para descobrir mais todos os comandos que você precisa.
 
 Primeiramente baixe o vim com "sudo apt instal vim". E digite "vimtutor" no terminal, ele é um tutorial interativo fantástico.
 Para mover o cursor, use as setinhas do teclado ou "h","j","k" e "l"
-Para sair do vim digite ":q" ou ":q!" para sair sem salvar as suas alterações. LEMBRANDO que você tem que estar em modo normal, então aperte ESC.
-Para salvar o vim digite ":w"ou ":w!"
-Para salvar e sair digite ":wq" ou ":wq!"
+
 
 Obs*: DD no modo normal: Apaga uma linha por completo, CC no modo normal: Apaga uma linha por completo e ja deixa o curso preparado para escrever na mesma linha vazia, Shift+G: Desce toda a página.
+
 -- Os modos do vim
 
 NORMAL: Serve para entrar nos outros modos, se movimentar no arquivo e rodar comandos mais básicos. Aperte ESC para entrar nele.
 INSERÇÃO: Insere texto. Digite "i" quando estiver no modo normal, para entrar no modo inserção.
-COMANDO: É um modo que aceita comandos. Para entrar nele digite ":" no modo normal.
+COMANDO: É um modo que aceita comandos. Para entrar nele digite ":" no modo normal. (Tem bastante comandos, da para trocar o tema do vim, colocar linhas e uma infinidade de coisas.)
 VISUAL: Seleciona os textos desejados. Digite "v" quando estiver no modo normal.
+VISUAL/BLOCO: Seleciona do jeito de bloco (forma mais simples) aperte Crtl+V no modo normal e para apagar o selecionado aperta D
+
+-- Comandos mais usados (OBs*: Deve ser usado no modo normal)
+
+":w" ou ":w!" = Salva
+":q" ou ":q!" = Sai
+":wq" ou ":wq!" = Salva e sai
+"u" = Para dar Crtl+Z (Undo)
+"yy" = Copia a linha inteira
+"dd" = Recorta a linha inteira
+"cc" = Apaga uma linha por completo e deixa o cursor preparado para escrever na mesma linha
+"p" = Cola o texto copiado/recortado na linha de baixo
+"P" = Cola o texto copiado/recortado na linha de cima
+"i" = Entra no modo inserção no inicio da linha
+"A" = Entra no modo inserção no final da linha 
+Shigt+G = Desce para a ultima linha
