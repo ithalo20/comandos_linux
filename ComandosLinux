@@ -6,6 +6,7 @@ Comandos no terminal Linux:
 
 --- Comandos de Atalhos
 
+Crtl+Alt+T: Abre o terminal
 Crtl+L: Limpa o terminal
 Crtl+U: Apaga toda a linha que voce esta digitando
 Crtl+D: Se voce entrar em alguma maquina, virar root, etc, o Crtl+D vai voltar um acesso antes, se n tiver dentro de nenhum acesso ele fecha o terminal.
@@ -21,9 +22,14 @@ Tab: Completa a palavra que você esta digitando
 - uname -a: Exibe todas as informações do sistema
 - neofetch: Mostra todas as informações de sistema e Hardware	
 - who: Exibe quem está logado no momento
+- whoami: Exibe quem eu sou.
 - w: Exibe quem esta logado e mais informações
 
---- Donwloads, instalações, listar atualizações, baixar e instalar atualizações, baixar arquivos da net para o pc local e desinstalação (APT, APT-CACHE e DPKG)
+-- Repetir o comando passado
+
+!! = Vai repetir o comando passado, é interessante caso precisa acrescentar algo tbm (ex: sudo !!) no caso fiz um comando que precisava de permissão ai eu fiz sudo e repeti o codigo !!
+
+--- Downloads, instalações, listar atualizações, baixar e instalar atualizações, baixar arquivos da net para o pc local e desinstalação (APT, APT-CACHE e DPKG)
 
 - sudo apt install <pacote>: Ele busca o pacote nos repositórios oficiais do seu Linux, e caso ele exista, também busca as dependências dele, Então ele BAIXA esses pacotes (que vem com a extensão .deb) e  os INSTALA com o dpkg por baixo dos panos, LEMBRE-SE consigo baixar a dependencia solo, basta colocar o nome da dependencia no lugar do <pacote>
 - sudo apt update: Atualiza as informações de software do seu PC
@@ -43,10 +49,30 @@ Tab: Completa a palavra que você esta digitando
 
 - wget <url>: Vai baixar a página para o seu PC (BAIXA NO DIRETORIO ATUAL)
 
---- Troca de usuário, Desinstalação de programa, Execução sudo e Modo root
+--- Descompactar
+
+unzip <pacote>: Vai descompactar pacotes.zip
+
+--- Troca de usuário, criar usuário, trocar senha do usuário, excluir usuário, adicionar grupo, excluir grupo e execução sudo e Modo root
+
+- su <usuario>: permite a troca de usuario, exemplo: su <ithalo>.
+- sudo adduser <nome_usuario>: Ele cria um novo usuário e um grupo com o mesmo nome. (Usuario vai para a home e os vai para /etc/passwd e /etc/group)
+- sudo userdel -r <nome_usuario>: Vai removar o usuário e seus grupos
+- passwd: muda a senha de usuario 
+- sudo passwd <usuario_desejado>: Muda a senha do usuário porém especifica qual usuario.
+- sudo addgroup <nome_grupo>: Ele vai criar um novo grupo. (O Grupo vai para /etc/group)
+- sudo groupdel <nome_grupo>: ELe vai o grupo especificado.
 - sudo: é chamado para que um determinado comando seja executado como privilégio de super usuário, como fosse o administrador do Windows. sudo (super user direct order OU super user do)
-- su: permite a troca de usuario, exemplo: su <ithalo>.
-- sudo su: entra no modo root, super usuario.
+- sudo su: entra no modo root, super usuario, caso queira executar como super usuario sem ativar modo root, só digitar sudo <comando>
+
+--- Outros comandos relacionado a permissões, grupos, usuários
+
+- id ou id <usuario>: Lista o seu UIG, GID e os grupos que você está ou lista o UIG, GID e o grupo do usuário que você desejou.
+- chown: Troca o usuário ou grupo dono de um arquivo ou diretório. Exemplo; "sudo chown daniel server.js", "sudo chmod daniel:devops servers.js", "sudo chown :devops server.js"
+- userdel: Deleta o usuário e o seu grupo, mas não deleta seus arquivos, nem sua home exemplo: "userdel giovanna". Para remover todos os arquivos junto coloque a opção "userdel -r giovanna"
+- usermod: Modifica a conta do usuário. Geralmente é usado para adicionar um usuário a um grupo. ExemplO.: "usermod -aG sudo giovanna"
+- deluser: Tira úsuario de um grupo. Exemplo.: "deluser luisa devops"
+- groupdel: Deleta o grupo desejado.
 
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.
@@ -54,15 +80,13 @@ Tab: Completa a palavra que você esta digitando
 - "cd ..": Vai para um diretório antes do atual, ../.. irá dois diretorios antes, e assim consecutivamente.
 
 --- Desligar e Reiniciar computador
+
 - shutdown now: desliga o computador instantaneamente
 - shutdown: desliga o pc dentro de 60 segundos
 - shutdown hh:mm (ex: shutdown 12:00): Desliga o PC de forma agendada conforme o parametro passado
 - shutdown +m (ex: shutdown +20): Vai desligar dentro do tempo que você passar, o +m significa minuto
 - shutdown +m "Mensagem desejada": A ideia é a mesma do comando acima, a unica diferença será a mensagem mostrada
 - OBS Sobre o shutdown: se colocar -r na frente será para reinicialização, -p desliga o sistema (também desliga a unidade).
-
---- Troca de senha
-- passwd: muda a senha de usuario
 
 --- Comparação de tamanho de arquivo
 - cmp <arquivo1> <arquivo2>: compara o tamanho dos arquivos
@@ -84,7 +108,7 @@ Tab: Completa a palavra que você esta digitando
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
 - pwd: mostra o endereço/caminho que você está.
-- whick <nome_programa>: Mostra o caminho do programa especificado.
+- which <nome_programa>: Mostra o caminho do programa especificado.
 - ls: verifica todos os arquivos, lembre-se tem varintes como ls -la (ve arquivos oculto)
 - ls <nome do diretorio>: para mostra o que tem nele, sem entrar (FUNCIONA COM AS OUTRAS VARIAÇÕES ABAIXO).
 - ls -a: Mostra TODOS os arquivos até os ocultos, porém não mostra como o -la que no caso seria em linhas, pois o "-l" que faz ficar na forma de lista.
@@ -97,6 +121,7 @@ Tab: Completa a palavra que você esta digitando
 - ls -ltr: Mostra os arquivos ja com as permissoes, peso dos arquivos, em ordem de DATA DE ALTERAÇÃO REVERSA, por conta do parametro "-t" = time, -r" = reverse
 - ls -lh: mostra os arquivos ja com as permissões, data de alteração, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
 - ls --color=auto: Ele vai colocar cores em arquivos respectivamente conforme o seu tipo (terminal ja faz isso automaticamente), temos outras variantes como --color=never para nunca colocar cores
+- tree <pasta>: Vai mostrar em formato de arvore, como fosse os packages de Java
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
 
@@ -147,6 +172,7 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 --- Criar arquivo, editar arquivo e texto, ler arquivo, criar link-simbolico
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
 - cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
+- grep <palavra_desejada>: Ele serve para abrir igual o cat ja filtrando a palavra certa, ele tambem pode ser usado com outro comando para adicionar filtro com | grep <palavra_desejada>
 - touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - nano (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
@@ -190,8 +216,9 @@ systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi infor
 - pkill <programa_aberto>: fecha o programa, porém tem o risco de voce fechar o programa errado se escrever incompleto
 - killall <programa_aberto>: fecha o programa, esse é mais seguro pois consegue fechar apenas se escrever exatamente certo o programa
 
+--- Testar notificação
 
-
+notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação que você escreveu.
 
 
 

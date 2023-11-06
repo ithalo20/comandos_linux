@@ -9,7 +9,7 @@ O ".." após o cd, significa que estamos indo a um diretório anterior, se usar 
 
 Caminho relativo: É o caminho para uma pasta ou arquvo em relação ao seu diretório atual. Começam com "./" ou nada. (ex: cd Downloads), só funciona se eu tiver em uma pasta anterior a Downloads nesse ex
 Caminho absoluto: É o caminho para uma pasta ou arquivo em relação ao seu computador. Começa com "/". (ex: cd /home/ithalo/Downloads), ele funciona de qualquer local, pois o endereço é absoluto
-
+a
 -- Saber usar o manual é uma skill importante ---
 
 É no manual que descobrimos que argumentos que um comando leva, Ele é divido em várias seções, mas as mais importantes são:
@@ -123,19 +123,103 @@ NORMAL: Serve para entrar nos outros modos, se movimentar no arquivo e rodar com
 INSERÇÃO: Insere texto. Digite "i" quando estiver no modo normal, para entrar no modo inserção.
 COMANDO: É um modo que aceita comandos. Para entrar nele digite ":" no modo normal. (Tem bastante comandos, da para trocar o tema do vim, colocar linhas e uma infinidade de coisas.)
 VISUAL: Seleciona os textos desejados. Digite "v" quando estiver no modo normal.
-VISUAL/BLOCO: Seleciona do jeito de bloco (forma mais simples) aperte Crtl+V no modo normal e para apagar o selecionado aperta D
+VISUAL/BLOCO: Seleciona do jeito de bloco (forma mais simples) aperte "Crtl+V" no modo normal e para recortar o selecionado aperta D
 
--- Comandos mais usados (OBs*: Deve ser usado no modo normal)
+-- Comandos mais usados (vim) (OBs*: Deve ser usado no modo normal)
+
+OBS* O Vim ele tem a capacidade de fazer você digitar a quantidade de linhas e fazer uma ação conforme isso, um dos exemplos é você digitar uma quantidade de linhas e copiar/recortar e depois colar, logo vai colar as quantidades que você digitou antes.
 
 ":w" ou ":w!" = Salva
 ":q" ou ":q!" = Sai
-":wq" ou ":wq!" = Salva e sai
+":wq" ou ":wq!" = Salva e sair
 "u" = Para dar Crtl+Z (Undo)
-"yy" = Copia a linha inteira
-"dd" = Recorta a linha inteira
-"cc" = Apaga uma linha por completo e deixa o cursor preparado para escrever na mesma linha
+"Crtl+R" = Para dar Crtl+Y (Redo)
+"yy" = Copia a linha inteira -- OBS*: Se voce digitou a quantidade que voce deseja copiar de linhas e depois apertar yy, ele vai copiar as quantidades de linha que voce setou. --
+"dd" = Recorta a linha inteira -- OBS*: Se voce digitou a quantidade que voce deseja copiar de linhas e depois apertar dd, ele vai copiar as quantidades de linha que voce setou. --
 "p" = Cola o texto copiado/recortado na linha de baixo
 "P" = Cola o texto copiado/recortado na linha de cima
-"i" = Entra no modo inserção no inicio da linha
+"w" = Pula em palavra por palavra
+"i" = Entra no modo inserção do ponto atual
+"I" = Entra no modo inserção no inicio da linha
 "A" = Entra no modo inserção no final da linha 
-Shigt+G = Desce para a ultima linha
+"o" = Entra no modo inserção na linha de baixo
+"O" = Entra no modo inserção na linha de cima
+"J" = Ele puxa a linha de baixo para cima e fica somando.
+"gg" = Vai pro inicio do arquivo
+"G" = Vai pro final do arquivo
+"0" = Coloca o cursor no início da linha (sem entrar em modo de inserção)
+"$" = Coloca o cursor no final da linha (sem entrar nem modo de inserção)
+"H" (High/Alto) = Coloca o cursor na primeira linha da tela
+"M" (Medium/Médio) = Coloca o cursor no meio da tela
+"L" (Low/Baixo) = Coloca o cursor na última linha da tela
+"zz" = Centraliza na tela a linha que você está
+":%s/palavra1/palavra2/g: Ele vai substitui a palavra1 pelo o que voce escrever na /palavra2/g, como fosse o rename das variaveis no vscode.
+"/" = Filto para procurar palavra desejada, no modo sensitivo, isso é com diferenciação de maíusculo e minúsculo
+"/\c" = Filtro para procurar palavra desejada no modo insensitivo, isso é sem diferenciação de maiusculo e minúsculo
+"n" = Vai para a próxima ocorrência encontrada do texto pesquisado
+"N" = Vai para a ocorrência anterior do texto pesquisado
+"}" = Vai para a próxima linha em branco
+"{" = Vai para a linha em branco anterior
+"cc" = Recorta uma linha por completo e deixa o cursor preparado para escrever na mesma linha
+"cw" = Recorta uma palavra e entra no modo inserção, para dar certo tem que usar no inicio da palavra (corta o que vem depois)
+"dw" = Recorta uma palavra e porém não entra em modo de inserção, usar no inicio da palavra (corta o que vem depois)
+"ciw" = Recorta a palavra que o cursor estiver dentro e entra em modo inserção
+"diw" = Recorta a plavra que o cursor estiver dentro porém não entra em modo de inserção
+" ci" " = Recorta a palavra que estiver entre aspas "" e entra no modo inserção
+" di" " = Recorta a palavra que estiver entre aspas "" porém não entra em modo inserção
+"cis" = Recorta TUDOO e entra em modo inserção
+"dis" = Recorta TUDO porém não entra em modo inserção
+"cit" = Recorta TUDO que esta dentro de uma tag <> e entra em modo inserção
+"dit" = Recorta TUDO que esta dentro de uma tag <> porém não entra em modo inserção
+"C" = Recorta tudo que está na frente do cursor e entra em modo de inserção
+"D" = Deleta tudo que esta na frente do do cursor
+
+--- Gerenciamento de usuários, grupos, permissões (4)
+
+Todo linux tem vários usuários e grupos. O usuário não necessariamente é um ser humano, softwares podem criar grupos e usuários também.
+Quando você instalou o seu Linu, você criou um usuário, e sem perceber também criou um grupo. O nome do meu usuário é ithalo, e o nome do grupo é o mesmo.
+Todas as informações de grupos e usuários se encontram nos arquivos /etc/passwd e /etc/group. OBS*: /etc/group mostra só o UID de Grupo, diferente do /etc/passwd que é mais completo)
+
+-- Sintaxe do /etc/passwd
+
+ithalo@ithalo-Nitro-AN515-54:~$ grep ithalo /etc/passwd
+ithalo:x:1000:1000:Ithalo,,,:/home/ithalo:/bin/bash
+
+*Cada parte é separada por ":"*
+1-) Username
+2-) Senha (x significa que existe uma senha cifrada em /etc/shadow)
+3-) UID (ID do usuário)
+4-) GUI (ID do grupo)
+5-) Comentários (opcional)
+6-) Diretório da home do usuário
+7-) Path para um comando ou shell
+
+-- Criando usuario (adduser)
+
+Esse comando cria um usuário novo e um grupo com o mesmo nome, e altera os arquivos /etc/passwd, /etc/group, e /etc/shadow.
+Ele cria uma home para esse novo usuário em /home e copia os arquivos dentro de /etc/skel para essa home (Caso queira que os usuarios ja venha com uma pasta/arquivo quando criado, só jogar na pasta skell)
+Os usuários criados por software tem UID entre 1 e 999, e os usuários criados por você tem de 1000 pra frente. Na máquina do "daniel" tem UID 1000 e "luisa" 1001. A exceção é o root que tem UID 0
+
+-- Criando grupo (addgroup)
+
+Esse comando cria um grupo. Ele é útil para organizar o acesso a um servidor, e controlar as permissões de vários usuários ao mesmo tempo.
+O arquivo /etc/group msotra os grupos que existem e quem está em cada um. E o GID (Group Identifier, Identificador do Grupo) dos grupos criados por você também está acima de 1000.
+
+-- Trocando de usuario (su)
+
+Para trocar de usuário basta digitar "su - <nome_do_usuário>", e para entrar como root digite "sudo su" (lembrando que seu usuário precisa estar no grupo sudo) *grep sudo /etc/group*
+
+-- Outros comandos
+
+"id" Lista o seu UIG, GID e os grupos que você está
+"chown" Troca o usuário ou grupo dono de um arquivo ou diretório. Exemplo; "sudo chown daniel server.js", "sudo chmod daniel:devops servers.js", "sudo chown :devops server.js"
+"userdel" Deleta o usuário, mas não deleta seus arquivos, nem sua home. Exemplo: "userdel giovanna", para remover todos os arquivos junto coloque a opção "userdel -r giovanna"
+"usermod" Modifica a conta do usuário. Geralmente é usado para adicionar um usuário a um grupo. ExemplO.: "usermod -aG sudo giovanna" (PODENDO ASSIM ADICIONAR USUARIOS AO GRUPO DE SUDO PARA TER PERMISSÃO ROOT)
+"deluser Tira úsuario de um grupo. Exemplo.: "deluser luisa devops"
+"groupdel" Deleta o grupo desejado.
+
+-- Permissões
+
+
+
+
