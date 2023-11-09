@@ -1,0 +1,48 @@
+Comando for
+
+O comando for permite criar um loop que itera através de uma serie de valores.
+Cada iteração executa um conjunto definido de comandos usando um dos valores da lista.
+Sintaxe básica:
+
+PARA EXECUTAR: ./<nome_arquivo.sh>
+
+for valor in lista
+do
+  comandos
+done
+
+a cada iteração, a variável valor contém o valor atual da lista
+
+--- Exemplo 01 - comando for
+
+#!/bin/bash
+# Ler valores de uma lista, declarada no
+# próprio comando for
+
+
+for valor in pastel pizza "pão de queijo"
+do				(do significa que a partir desse ponto o loop se inicia)
+  echo Adoro $valor             ($valor é a variavel, valor)
+done				(done significa que acabou)
+
+--- Separador de campos: IFS
+
+Caso os itens iterados sejam compostos por palavras separadas por espaços (como Ana Paula), o comando for irá considerar cada palavra como item separado.
+Isso é devido á variável de ambiente IFS (Internal Field Separator), a qual define uma lista de caracteres que o shell bash usa como separadores de campos.
+São eles, por padrão: espaço, tabulação e newline.
+É possivel alterar essa lista de separadores.
+
+--- Exemplo 02 - comando for
+
+#!/bin/bash
+# Arquivo arq1 contém uma lista de nomes, um
+# por linha, incluindo nomes compostos.
+arquivo=/home/ithalo/"Área de Trabalho"/arquivostxtfor
+IFS.OLD=$IFS
+IFS=$'\n'             (colocar aspas simples)
+
+for nome in `cat $arquivo`
+do
+  echo "O nome é: $nome"
+done
+IFS=$IFS.OLD

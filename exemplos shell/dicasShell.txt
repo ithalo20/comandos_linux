@@ -1,0 +1,35 @@
+SHELL SCRIPT
+
+Sintaxe:
+
+for variavel in lista
+do
+	echo $variavel
+done
+
+
+!#/bin/bash = Colcoar no topo, significa quem for ver esse arquivo, é que é um arquivo shell que deve rodar em bash
+echo -e = Permite eu dar \n dentro da print
+read = como fosse o leia, ele permite guardar o que o usuario digitou
+read -p = Transforma em escreva/leia direto, como fosse input do python
+read -a = que vai vir entrar de arraylist
+$(seq 30): vai contar de 1 a 30
+$(seq 2 20): Vai contar de 2 a 20
+$((<operação_matematica>)): permite eu fazer uma operação dentro do echo.
+
+Quando tem {} significa que é um array, [@] Quando você usa [@], está especificando a expansão de todos os elementos do array.
+
+
+Estrutura do if:
+
+if...then...elif...else...fi
+
+Sintaxe:
+
+if [ TESTE ]; then
+    comandos-teste...
+elif [ SENAO-TESTE ]; then
+    comandos-senao-teste...
+else
+    comandos-senao...
+fi
