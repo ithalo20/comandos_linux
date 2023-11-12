@@ -47,6 +47,11 @@ Tab: Completa a palavra que você esta digitando
 - sudo dpkg --purge <pacote. deb>: Irá REMOVER o pacotE e tambem REMOVERÁ TODOS OS RESTÍGIOS., caches e tudo mais (MAIS RECOMENDADO)
 - sudo dpkg -l: Lista todos os pacotes instalados.
 
+- sudo snap install <programa>: Vai baixar e instalar o app pela snap-store
+- sudo snap remove --purge <programa>: Vai desinstalar o programa por completo pela snap-store
+- sudo snap refresh --list: Vai listar todos os apps com possibilidade de atualização
+- sudo snap refresh: Vai atualizar todos os programas, porém voce consegue listar um app em especifico para atualizar ex: (sudo snap refresh <firefox>)
+
 - wget <url>: Vai baixar a página para o seu PC (BAIXA NO DIRETORIO ATUAL)
 
 --- Descompactar

@@ -91,7 +91,7 @@ Ex.: Ao instalarmos o brave (navegador), criamos os arquivos CHAVE GPG /etc/apt/
 
 Uma outra opção para baixar softwares para o linux é através da snap store, que é uma espécie de APP store para linux (criada pela canonical). Todos os aplicativos mais famosos estão lá. A loja do ubuntu baixa tudo de lá.
 
-caso o aplicativo tem na Snap store e você nao quer abrir, basta voce colocar sudo snap <nome_app> install (ex.: sudo snap spotify install)
+caso o aplicativo tem na Snap store e você nao quer abrir, basta voce colocar sudo snap <nome_app> install (ex.: sudo snap install spotify)
 
 Antes de usar é necessario ter um pacote chamado snapd, através do terminal "sudo apt install snapd". 
 Já instalado é só utilizar "sudo snap <app> install" ou caso deseja usar a loja snap store e baixar por lá, você pode usar (sudo snap install snap-store), ai você consegue usar a loja com a interface.
@@ -189,7 +189,7 @@ ithalo:x:1000:1000:Ithalo,,,:/home/ithalo:/bin/bash
 1-) Username
 2-) Senha (x significa que existe uma senha cifrada em /etc/shadow)
 3-) UID (ID do usuário)
-4-) GUI (ID do grupo)
+4-) GUI ou GID (ID do grupo)
 5-) Comentários (opcional)
 6-) Diretório da home do usuário
 7-) Path para um comando ou shell
@@ -218,8 +218,20 @@ Para trocar de usuário basta digitar "su - <nome_do_usuário>", e para entrar c
 "deluser Tira úsuario de um grupo. Exemplo.: "deluser luisa devops"
 "groupdel" Deleta o grupo desejado.
 
--- Permissões
+-- Permissões --
+-- Sintaxe do ls -l
 
+ithalo@ithalo-Nitro-AN515-54:/home$ ls -lh
+total 8,0K
+drwxr-x---  2 giovanna giovanna 4,0K nov  6 17:00 giovanna
+drwxr-x--- 24 ithalo   ithalo   4,0K nov 11 22:03 ithalo
 
+1-) Bloco de permissões
+2-) Número de links
+3-) Usuário dono
+4-) Grupo dono
+5-) Tamanho do arquivo
+6-) Datae hora da última modificação
+7-) Nome do arquivo
 
 
