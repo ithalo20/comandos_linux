@@ -73,11 +73,14 @@ unzip <pacote>: Vai descompactar pacotes.zip
 --- Outros comandos relacionado a permissões, grupos, usuários
 
 - id ou id <usuario>: Lista o seu UIG, GID e os grupos que você está ou lista o UIG, GID e o grupo do usuário que você desejou.
-- chown: Troca o usuário ou grupo dono de um arquivo ou diretório. Exemplo; "sudo chown daniel server.js", "sudo chmod daniel:devops servers.js", "sudo chown :devops server.js"
+- chown <usuario> <arquivo/pasta>: Troca o usuário ou grupo dono de um arquivo ou diretório. (Exemplo; "sudo chown daniel server.js"), ("sudo chown daniel:devops servers.js"), ("sudo chown :devops server.js")
 - userdel: Deleta o usuário e o seu grupo, mas não deleta seus arquivos, nem sua home exemplo: "userdel giovanna". Para remover todos os arquivos junto coloque a opção "userdel -r giovanna"
 - usermod: Modifica a conta do usuário. Geralmente é usado para adicionar um usuário a um grupo. ExemplO.: "usermod -aG sudo giovanna"
 - deluser: Tira úsuario de um grupo. Exemplo.: "deluser luisa devops"
 - groupdel: Deleta o grupo desejado.
+- chmod u="",g="",o="" <arquivo ou diretorio>: Permite trocar as permissões dos arquivos ou diretorios, (exemplo: sudo chmod u="rwx",g="rwx",o= "rwx"), u(usuario owner),g(grupo) e o(other)
+- chmod u+permissoes: Nesse tipo conseguimos adicionar e retirar permissoes de forma mais facil (exemplo: o+rwx | Eu adicionei no other = rwx) (exemplo: o-rwx | Eu removi no others no = rwx)
+- chmod 000 <arquivo ou diretório>: Permite trocar as permiessoes de arquivos ou diretorios, (exemplo: chmod 755 giovanna), a diferença entre o de cima é que esse é usado no formato octal (IMAGEM NA PASTA)
 
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.

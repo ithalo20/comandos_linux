@@ -219,6 +219,7 @@ Para trocar de usuário basta digitar "su - <nome_do_usuário>", e para entrar c
 "groupdel" Deleta o grupo desejado.
 
 -- Permissões --
+
 -- Sintaxe do ls -l
 
 ithalo@ithalo-Nitro-AN515-54:/home$ ls -lh
@@ -231,7 +232,25 @@ drwxr-x--- 24 ithalo   ithalo   4,0K nov 11 22:03 ithalo
 3-) Usuário dono
 4-) Grupo dono
 5-) Tamanho do arquivo
-6-) Datae hora da última modificação
+6-) Data e hora da última modificação
 7-) Nome do arquivo
 
+*Curiosidade: toda pasta no Linux pesa 4,0k*
 
+-- Tipos de permissões
+
+1-) READ(r): Permissão para ler um arquivo ou ver o conteúdo de um diretório
+2-) WRITE(w): Permissão para modificar, criar, renomear e deletar arquivos
+3-) EXECUTE(x): Permissão para executar um arquivo. 
+
+-- Blocos de permissões
+
+OBS*: TEM UMA IMAGEM NA PASTA COMANDOLINUX MOSTRANDO TUDO ENVOLVENDO SOBRE
+
+-- chmod
+
+Comando Utilizado para alterar permissões de um arquivo/diretório. Pode-ser utilizado de várias formas.
+
+chmod u=rwx,g=rx,o= <arquivo/diretorio>
+chmod o+rwx  <arquivo/diretorio>
+chmod 000 <arquivo/diretorio>: chmod em octal ele funciona de forma 000, exemplo 1 em octal é descrito como 001 --x, logo ele vai ativar apenas a execução, 2 em octal é 010 logo ativara -w- escrita

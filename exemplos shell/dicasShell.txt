@@ -1,12 +1,13 @@
 SHELL SCRIPT
 
-Sintaxe:
+Sintaxe em for:
 
 for variavel in lista
 do
 	echo $variavel
 done
 
+No Shell script, "do" e "done" são palavras-chave usadas em conjunto para delimitar um bloco de comandos que será executado em um loop. Essa estrutura é comumente encontrada em loops for e while. (lembra for{})
 
 !#/bin/bash = Colcoar no topo, significa quem for ver esse arquivo, é que é um arquivo shell que deve rodar em bash
 echo -e = Permite eu dar \n dentro da print
