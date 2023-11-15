@@ -254,3 +254,39 @@ Comando Utilizado para alterar permissões de um arquivo/diretório. Pode-ser ut
 chmod u=rwx,g=rx,o= <arquivo/diretorio>
 chmod o+rwx  <arquivo/diretorio>
 chmod 000 <arquivo/diretorio>: chmod em octal ele funciona de forma 000, exemplo 1 em octal é descrito como 001 --x, logo ele vai ativar apenas a execução, 2 em octal é 010 logo ativara -w- escrita
+
+--- Redirecionamento de entrada e saída (5)
+
+-- Tipos de entrada e saída (stdin, stdout e stderr)
+
+No linux existe 1 tipo de entrada e 2 tipos de saída.
+
+stdin: Standart input (entrada padrão). Pode ser algo digitado no teclado ou o texto de um arquivo.
+stdout: Standart output (saída padrão). É a saída de um comando quando ele é bem sucedido.
+stderr: Standart error (erro padrão). É a saída de um comando quando ocorre um ERRO.
+
+-- Redirecionamento
+
+Redirecionamento para um arquivo 
+
+Os operador de redirecionamento de saídas para um arquivo são o ">" e o ">>".
+
+">" Sobrescreve o contéudo do arquivo com a sáida (ex: ls > <arquivo>) ele vai jogar a saida do ls para esse arquivo, ele meio que deleta tudo que tiver dentro do arquivo e joga a saída do comando
+">>" Adiciona a saída no final do arquivo. (ex: ls > <arquivo>) ele vai jogaar a saida do ls para esse arquivo, diferente do ">", ele não subscreve o arquivo, ele pula uma linha e adiciona a saída.
+
+"1>" Sobrescreve o arquivo com a saída padrão (mesma coisa que o ">") (se o comando der erro ele vai jogar no terminal)
+"2>" Sobrescreve o arquivo com a saída de erro. (se o arquivo não der erro ele joga para o arquivo especifico, se der certo ele joga para o terminal)
+"&>" Sobrescreve o arquivo com todas as saídas.
+
+OBS*: CONSIGO JUNTAR TANTO O "1>" E O "2>" EXEMPLO: (LS 1> TESTE1 2> TESTE2), AI ELE JOGA PARA ARQUIVOS DIFERENTES CASO UMA DAS CONDIÇÕES ACONTECEREM NO CASO DE SAIDA COM ERRO OU SAIDA NORMAL, POREM ELE APAGA A SADA QUE NÃO FOI USADA, EXEMPLO SE EU JOGUEI O ERRO ELE VAI SUBSCREVER O TESTE 2, PORÉM ELE VAI APAGAR TUDO O QUE TINHA NO TESTE 1, POIS DE QUALQUER FORMA ELE SEMPRE LIMPA OS ARQUIVOS COM ">" ÚNICA.
+
+"1>>" Adiciona a saída padrão no final do arquivo. (mesma coisa que o ">>")
+"2>>" Adiciona a saída de erro no final do arquivo. (se o arquivo não der erro ele joga para o arquivo especifico, se der certo ele joga para o terminal)
+"&>>" Adiciona todas as saídas no final do arquivo.
+
+OBS*: DIFERENTE DA OBSERVAÇÃO DE CIMA ELE NÃO IRÁ APAGAR POIS O ">>" SIGNIICA QUE IRA ADICIONAR E NÃO SUBSCREVER.
+
+-- /dev/null
+
+O /dev/null é mais conhecido como o buraco negro do linux. Por que ele é um "arquivo" vazio, e toda vez que algum output vai para lá, ele é deletado. E qual a utilidade disso? Filtrar o output de um comando.
+O Comando find por exemplo quase sempre mostra uma mensagem de erro com permissões, então podemos usar o find e mandar o stderr para /dev/null

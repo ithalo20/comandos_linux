@@ -177,9 +177,10 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 - tail -5: Mostra as ultimas quantidades de linhas desejadas do arquivo, nesse caso apareceria 5 ultimas linhas
 - tail -f: Consegue ver as alterações em tempo real no terminal das ultimas 10 linhas.
 
---- Criar arquivo, editar arquivo e texto, ler arquivo, criar link-simbolico
+--- Criar arquivo, editar arquivo e texto, ler arquivo, criar link-simbolico, saida em um arquivo.
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
-- cat > <arquivo>: cria um texto, após digitar o seu texto aperta Crtl+C ou Crtl+Z
+- <comando> > <novo_arquivo>: Ele consegue subscrever o que o comando fez em um arquivo exemplo: (ls > arquivo), ele apaga toda a informação dentro do arquivo e joga a saída do comando dentro do arquivo.
+- <comando> >> <nova_arquivo>: exemplo: (ls >> arquivo)ele vai jogar a saida do ls para esse arquivo, diferente do ">", ele não subscreve o arquivo, ele adiciona a informação com o arquivo preenchido
 - grep <palavra_desejada>: Ele serve para abrir igual o cat ja filtrando a palavra certa, ele tambem pode ser usado com outro comando para adicionar filtro com | grep <palavra_desejada>
 - touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
