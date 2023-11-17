@@ -63,8 +63,8 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - su <usuario>: permite a troca de usuario, exemplo: su <ithalo>.
 - sudo adduser <nome_usuario>: Ele cria um novo usuário e um grupo com o mesmo nome. (Usuario vai para a home e os vai para /etc/passwd e /etc/group)
 - sudo userdel -r <nome_usuario>: Vai removar o usuário e seus grupos
-- passwd: muda a senha de usuario 
-- sudo passwd <usuario_desejado>: Muda a senha do usuário porém especifica qual usuario.
+- passwd: muda a senha de usuario ou caso não tiver, cria uma senha
+- sudo passwd <usuario_desejado>: Muda a senha do usuário porém especifica qual usuario ou cria uma senha para o usuario
 - sudo addgroup <nome_grupo>: Ele vai criar um novo grupo. (O Grupo vai para /etc/group)
 - sudo groupdel <nome_grupo>: ELe vai o grupo especificado.
 - sudo: é chamado para que um determinado comando seja executado como privilégio de super usuário, como fosse o administrador do Windows. sudo (super user direct order OU super user do)
@@ -75,8 +75,9 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - id ou id <usuario>: Lista o seu UIG, GID e os grupos que você está ou lista o UIG, GID e o grupo do usuário que você desejou.
 - chown <usuario> <arquivo/pasta>: Troca o usuário ou grupo dono de um arquivo ou diretório. (Exemplo; "sudo chown daniel server.js"), ("sudo chown daniel:devops servers.js"), ("sudo chown :devops server.js")
 - userdel: Deleta o usuário e o seu grupo, mas não deleta seus arquivos, nem sua home exemplo: "userdel giovanna". Para remover todos os arquivos junto coloque a opção "userdel -r giovanna"
-- usermod: Modifica a conta do usuário. Geralmente é usado para adicionar um usuário a um grupo. ExemplO.: "usermod -aG sudo giovanna"
-- deluser: Tira úsuario de um grupo. Exemplo.: "deluser luisa devops"
+- usermod: Modifica a conta do usuário. Geralmente é usado para adicionar um usuário a um grupo. ExemplO.: "usermod -aG sudo giovanna" para trocar grupo primeiro usamos o "usermod -g sudo giovanna"
+- deluser <usuario> <grupo>: Tira úsuario de um grupo. Exemplo.: "deluser luisa devops"
+- gpasswd -d <usuario> <grupo>: Caso o comando acima não funcionar, tente esse. Depende cada distro.
 - groupdel: Deleta o grupo desejado.
 - chmod u="",g="",o="" <arquivo ou diretorio>: Permite trocar as permissões dos arquivos ou diretorios, (exemplo: sudo chmod u="rwx",g="rwx",o= "rwx"), u(usuario owner),g(grupo) e o(other)
 - chmod u+permissoes: Nesse tipo conseguimos adicionar e retirar permissoes de forma mais facil (exemplo: o+rwx | Eu adicionei no other = rwx) (exemplo: o-rwx | Eu removi no others no = rwx)
@@ -198,6 +199,7 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 - ssh: Login remoto do cliente
 - ssh -l <login> <nome da maquina virtual>: acesso remoto da jump com as maquinas virtuais
 - ssh <login>@<nome_da_maquina_virtual>: acesso remoto da jump com as maquinas virtuais de um jeito alternativo.
+- telnet <ip_server>: Vai testar se o servidor consegue ser conectado, lembra um pouco ping pra ver se tem rota.
 *Bonus: parametro -l significa login_name após do paramentro "l", por isso usamos -l (tem no <man ssh> os parametros)*
 
 -- Acessar VDI remotamente (antes fazer a jump):
