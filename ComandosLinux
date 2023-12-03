@@ -4,6 +4,11 @@ Crtl+H: Usado em um diretório ele mostrará os arquivos ocultos.
 
 Comandos no terminal Linux:
 
+--- Pipe"|"
+
+É um operador onde consegue juntar 2 comandos ou mais exemplo: fortune | cowsay. Esse comomando ira fazer o fortune que é um programa de gerar frases falar essa frase no Cowsay.
+E assim gerando uma Pipeline que é essa linha de pipes.
+
 --- Comandos de Atalhos
 
 Crtl+Alt+T: Abre o terminal
@@ -131,6 +136,7 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - ls -lh: mostra os arquivos ja com as permissões, data de alteração, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
 - ls --color=auto: Ele vai colocar cores em arquivos respectivamente conforme o seu tipo (terminal ja faz isso automaticamente), temos outras variantes como --color=never para nunca colocar cores
 - tree <pasta>: Vai mostrar em formato de arvore, como fosse os packages de Java
+- find / -name <arquivo_ou_pasta>: Vai procurar no linux inteiro arquivos ou pasta com esse nome, porém ele mostra as saidas de erros, para ficar mais limpo de um 2> /dev/null (COLOCAR SUDO ANTES DO find)
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
 

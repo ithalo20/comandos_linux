@@ -251,6 +251,8 @@ OBS*: TEM UMA IMAGEM NA PASTA COMANDOLINUX MOSTRANDO TUDO ENVOLVENDO SOBRE
 
 Comando Utilizado para alterar permissões de um arquivo/diretório. Pode-ser utilizado de várias formas.
 
+(u = USER_OWNER / g = GROUP / o = OTHERS)
+
 chmod u=rwx,g=rx,o= <arquivo/diretorio>
 chmod o+rwx  <arquivo/diretorio>
 chmod 000 <arquivo/diretorio>: chmod em octal ele funciona de forma 000, exemplo 1 em octal é descrito como 001 --x, logo ele vai ativar apenas a execução, 2 em octal é 010 logo ativara -w- escrita
@@ -262,8 +264,8 @@ chmod 000 <arquivo/diretorio>: chmod em octal ele funciona de forma 000, exemplo
 No linux existe 1 tipo de entrada e 2 tipos de saída.
 
 stdin: Standart input (entrada padrão). Pode ser algo digitado no teclado ou o texto de um arquivo.
-stdout: Standart output (saída padrão). É a saída de um comando quando ele é bem sucedido.
-stderr: Standart error (erro padrão). É a saída de um comando quando ocorre um ERRO.
+stdout: Standart output (saída padrão). É a saída de um comando quando ele é bem sucedido. (1> / 1>>)
+stderr: Standart error (erro padrão). É a saída de um comando quando ocorre um ERRO. (2> / 2>>)
 
 -- Redirecionamento
 
@@ -290,3 +292,16 @@ OBS*: DIFERENTE DA OBSERVAÇÃO DE CIMA ELE NÃO IRÁ APAGAR POIS O ">>" SIGNIIC
 
 O /dev/null é mais conhecido como o buraco negro do linux. Por que ele é um "arquivo" vazio, e toda vez que algum output vai para lá, ele é deletado. E qual a utilidade disso? Filtrar o output de um comando.
 O Comando find por exemplo quase sempre mostra uma mensagem de erro com permissões, então podemos usar o find e mandar o stderr para /dev/null
+
+-- Redirecionamento para outro comando
+
+Vimos como redirecionar output para um arquivo, mas como redirecionar para outro comando? Fazemos isso através de um operador chamado pipe "|", que é essa barra na vertical
+Ele manda o output de um comando como input de outro Comando. Como exemplo podemos usá-lo junto com o grep (comando que filtra output), como "dpkg -l | grep steam" e "ls -l | grep home".
+
+*Outro Exemplo: fortune | cowsay esse comomando ira fazer o fortune que é um programa de gerar frases falar essa frase no Cowsay.
+
+-- Pipeline
+
+Quando mais de 2 comandos são usados com redirecionamento, temos um pipeline
+
+"Mais um Exemplo: fortune | cowsay | lolcat. esse comomando ira fazer o fortune que é um programa de gerar frases falar essa frase no Cowsay junto com o lolcat que deixa colorido
