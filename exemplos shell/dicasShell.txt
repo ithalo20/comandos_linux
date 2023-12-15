@@ -10,7 +10,8 @@ done
 No Shell script, "do" e "done" são palavras-chave usadas em conjunto para delimitar um bloco de comandos que será executado em um loop. Essa estrutura é comumente encontrada em loops for e while. (lembra for{})
 
 !#/bin/bash = Colcoar no topo, significa quem for ver esse arquivo, é que é um arquivo shell que deve rodar em bash
-echo -e = Permite eu dar \n dentro da print
+echo \ = Permite eu dar 1 \n dentro da print
+echo -e = Permite eu dar 2 \n dentro da print
 read = como fosse o leia, ele permite guardar o que o usuario digitou
 read -p = Transforma em escreva/leia direto, como fosse input do python
 read -a = que vai vir entrar de arraylist
