@@ -42,6 +42,7 @@ Tab: Completa a palavra que você esta digitando
 - sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser, que foi instalado em apt.
 - sudo apt update: Atualiza informações de software do seu PC, ele fica apenas CIENTE que tem atualizações como ele mapeasse as coisas novas, porém ele nao baixa e nem instala essas atualizações.
 - sudo apt upgrade: Atualiza todos os softwares, usar após o APT UPDATE para listar as novas atualizações, ai damos um UPGRADE para baixar e instalar as novas atualizações.
+- sudo apt --only-upgrade install google-chrome-stable: Ira atualizar somente um programa, no caso coloquei o google no exemplo.
 - sudo apt update && sudo apt upgrade: É igual programação && significa "and", ira listar as atualizações do repositório e depois ira baixar e instalar as atualizações.
 
 - sudo apt-cache search <pacote>: Procura os pacotes pelo nome, ai vai mostrar os pacotes disponiveis.
