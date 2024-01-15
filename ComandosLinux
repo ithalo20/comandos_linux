@@ -155,6 +155,8 @@ ex: "wc long.txt", resultado: 37 207 1000 long.txt, isso significa: 37 linhas, 2
 
 wc -w <arquivo>: A diferença do wc é que com o argumento -w, ele mostra apenas a quantidade de PALAVRAS e o NOME.man
 
+wc -l <arquivo>: Conta apenas a quantidade de linhas que o arquivo possui.
+
 --- Copiar
 - cp: Faz uma copia seja na mesma pasta, ou em algum outro endereço, -r é para diretorio (ex: cp <nome> <copia>)(ex: cp <nome> /endereço)(copia de diretorio ex: cp -r <nome> <nomedacopia>) (ex: cp -r <nome> /endereço)
 
