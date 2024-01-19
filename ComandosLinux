@@ -165,10 +165,11 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 		scp -p root@162.168.1.1:/media/scp.png edward@162.168.1.2:/desktop/destination
 
 
---- Consumo de memória, tamanho do arquivo, tamanho de disco
+--- Consumo de memória, tamanho do arquivo, tamanho de disco, tamanho de block volume
 - free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
 - du: Mostra o tamanho do arquivo, diretorio, du -k (kb), du -m (mb), etc
 - df: Mostra o tamanho do Disco, lembre-se tem variante como du -h (human), etc
+- lsblk: Mostra o tamanho do Block Volume.
 
 --- Imprimir mensagem no terminal
 - echo "mensagem": ira imprimir no terminal a mensagem que voce mandou após o echo.
