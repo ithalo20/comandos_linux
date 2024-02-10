@@ -8,10 +8,10 @@ do
 
 if [ -d $basename ]
 then
-    echo "O $basename é um Diretório"
-    sleep 0.3
+    echo "O '$basename' é um Diretório"
+    sleep 0.01
 else
-    echo "O $basename é um Arquivo"
-    sleep 0.3
+    echo "O '$basename' é um Arquivo"
+    sleep 0.01
 fi
 done
