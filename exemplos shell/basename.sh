@@ -6,7 +6,7 @@ for scan in /lib/*
 do
     basename=$(basename "$scan")
 
-if [ -d $basename ]
+if [ -d $scan ]
 then
     echo "O '$basename' é um Diretório"
     sleep 0.01
