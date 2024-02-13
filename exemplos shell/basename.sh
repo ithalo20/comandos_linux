@@ -1,6 +1,6 @@
 # Nesse exemplo vemos que o "basename" ele consegue tirar o caminho e mostrar o diretório e arquivo direto.
 
-echo -e 'Identificando se é arquivo ou diretório\n'
+echo 'Identificando se é arquivo ou diretório'
 
 for scan in /lib/*
 do
