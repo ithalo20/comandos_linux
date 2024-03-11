@@ -72,7 +72,7 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - passwd: muda a senha de usuario ou caso não tiver, cria uma senha
 - sudo passwd <usuario_desejado>: Muda a senha do usuário porém especifica qual usuario ou cria uma senha para o usuario
 - sudo addgroup <nome_grupo>: Ele vai criar um novo grupo. (O Grupo vai para /etc/group)
-- sudo groupdel <nome_grupo>: ELe vai o grupo especificado.
+- sudo groupdel <nome_grupo>: ELe vai remover o grupo especificado.
 - sudo: é chamado para que um determinado comando seja executado como privilégio de super usuário, como fosse o administrador do Windows. sudo (super user direct order OU super user do)
 - sudo su: entra no modo root, super usuario, caso queira executar como super usuario sem ativar modo root, só digitar sudo <comando>
 
@@ -242,7 +242,7 @@ systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi infor
 notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação que você escreveu.
 
 
-
+docker exec -ti <ID_CONTAINER> bash
 
 .bashrc é o arquivo oculto onde fica as configurações pre setadas do alias, conseguimos abrir ele com o vim, toda vez que damos ls, na real estamos dando ls --color=auto, pq é um alias.
 cd ~/.bashrc
