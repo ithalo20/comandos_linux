@@ -243,6 +243,7 @@ systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi infor
 notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação que você escreveu.
 
 
+docker exec -ti <ID_CONTAINER> bash
 
 
 .bashrc é o arquivo oculto onde fica as configurações pre setadas do alias, conseguimos abrir ele com o vim, toda vez que damos ls, na real estamos dando ls --color=auto, pq é um alias.
