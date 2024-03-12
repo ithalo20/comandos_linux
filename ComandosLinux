@@ -242,6 +242,8 @@ systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi infor
 
 notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação que você escreveu.
 
+logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
+-h significa host, -u significa usuario e -p significa password
 
 docker exec -ti <ID_CONTAINER> bash
 
