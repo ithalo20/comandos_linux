@@ -20,6 +20,7 @@ Tab: Completa a palavra que você esta digitando
 
 --- Manual de comandos e ajuda
 - man <comando>: Exibe o manual do comando, (exemplo: man uname), vai exibir todo manual do uname
+- info <comando>: Diferente do man, o info ele tras algumas informações de resultado como output.
 - <comando> --help: Abrirá a ajuda das outras variações do que o comando faz.
 - whatis <comando>: Ele fala de forma grosseiramente curta o que o comando significa.
 
@@ -241,8 +242,11 @@ systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi infor
 
 notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação que você escreveu.
 
+logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
+-h significa host, -u significa usuario e -p significa password
 
 docker exec -ti <ID_CONTAINER> bash
+.
 
 .bashrc é o arquivo oculto onde fica as configurações pre setadas do alias, conseguimos abrir ele com o vim, toda vez que damos ls, na real estamos dando ls --color=auto, pq é um alias.
 cd ~/.bashrc
