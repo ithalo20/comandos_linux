@@ -1,0 +1,31 @@
+[ DAY 2 ]
+
+FHS
+
+/bin = São os binários todos os arquivos executaveis, são os comandos do linux (ls, cat, vi, vim, etc) 
+/boot = São os arquivos essenciais para a inicialização do sistema *Curiosidade (o kernel fica no /boot, o nome dele é vmlinuz)
+/dev = Vem de device, fica todos os dispositivos do sistema (HD, SDD, Mouse, Impressora, Pen-Drive, Teclado, Terminais e por ai vai.
+/etc = É o diretório que terá todos os arquivos de configurações globais. 
+/home = É o diretório que tem a home dos usuarios.
+/lib = Bibliotecas essenciais do sistema, de binários localizados em /bin e /sbin (Um exemplo são os drivers)
+/mnt = Sistema de arquivos montado temporariamente
+/lost+found = Arquivos para recuperação, geralmente gerado por uma queda de energia ou fechamento inadequado, serve para ser recuperado.
+/opt = Antigamente o opt era onde ficava armazenados os pacotes de instalação de softwares
+/proc = É um diretório virtual onde tem arquivos com informações de todo sistema, CPU, Memoria, Disposito de Caracter, Dispositivo de Bloco entre outros.
+/root = É o diretório do usuário root (super usuario), onde tem todas as informações do mesmo
+/run = É um diretório com informações temporaria, ele mostra tudo que esta rodando de fundo, pessoas que estão logadas.
+/sbin = A diferença do bin e o sbin, é que o sbin é referente ao Superusuario (root), então são comando que só ele tem permissão pra utilizar.
+/srv = Arquivos relacionados a servidores, dados estáticos.
+/sys = Trás informações do sistema na parte de HARDWARE de forma mais organizada e estática.
+/tmp = É um diretório temporaria, tudo que esta armazenado dele após o PC ser desligado, ele apaga (NÃO RECOMENDADO COLOCAR BACKUP NELE)
+/usr = É o segundo maior diretório perdendo apenas para o diretorío raiz, ele tem a mesma função que o raiz faz as separações, mas de arquivos que não interfira no funcionamento do Linux em si.
+/var = É um diretório de variáveis, trás informações de log, debugs e por ai vai.
+
+[ DAY 3 ]
+
+Um comando interno é, é um comando que esta dentro do interpretador do próprio Shell, e é mais rapido que o comado externo.
+Um comando externo é, um comando que esta fora do interpretador e fizemos alguns macetes para colocar.
+
+which <comando>: Vai mostrar onde está o comando.
+whereis <comando>: Vai mostrar onde está o comando.
+type <comando>: Vai informar que tipo de comando é esse, se ele é interno (shell builtin), alias ou externo (hashed).

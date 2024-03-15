@@ -1,0 +1,5 @@
+-rw-rw---- = Quando não possui inicial significa que é um executavel
+drw-rw---- = A Inicial "d" significa que é um diretório
+lrw-rw---- = A Inicial "l" significa que é um Symbolic Link, resumindo de forma inchuta é um atalho
+brw-rw---- = A Inicial "b" significa que é um dispositivo de bloco, aquele que armazena informação como um HD, SSD, Pen-Drive etc.
+crw-rw---- = A Inicial "c" é dispositivo de caracter, é um dispositivo que está recebendo e enviando informação, terminal (tty), impressora (lp), mouse (psaux) é um exemplo disso.

@@ -4,10 +4,13 @@ Crtl+H: Usado em um diretório ele mostrará os arquivos ocultos.
 
 Comandos no terminal Linux:
 
---- Pipe"|"
+--- Pipe "|"
 
 É um operador onde consegue juntar 2 comandos ou mais exemplo: fortune | cowsay. Esse comomando ira fazer o fortune que é um programa de gerar frases falar essa frase no Cowsay.
 E assim gerando uma Pipeline que é essa linha de pipes.
+
+cat /proc/cpuinfo: Vai retornar informações da minha CPU
+
 
 --- Comandos de Atalhos
 
@@ -94,6 +97,7 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - "cd /": Vai para o diretório raiz.
 - "cd" ou "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
 - "cd ..": Vai para um diretório antes do atual, ../.. irá dois diretorios antes, e assim consecutivamente.
+- " cd - ": Vai para o último diretório que vocês estava, ai em vez de digitar tudo dnv o antigo endereço, é só digitar cd -, que ele volta.
 
 --- Desligar e Reiniciar computador
 
@@ -169,7 +173,7 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 --- Consumo de memória, tamanho do arquivo, tamanho de disco, tamanho de block volume
 - free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
 - du: Mostra o tamanho do arquivo, diretorio, du -k (kb), du -m (mb), etc
-- df: Mostra o tamanho do Disco, lembre-se tem variante como du -h (human), etc
+- df: Mostra o tamanho do Disco e suas partiçõe se tiver, lembre-se tem variante como du -h (human), etc
 - lsblk: Mostra o tamanho do Block Volume.
 
 --- Imprimir mensagem no terminal
@@ -201,6 +205,9 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 
 -- Setagem de comando
 - alias: ele é um atalho para fazer um comando apenas digitando poucas coisas como, ll ele faz uma coisa e por ai vai.
+- alias lsa='ls -ltra': Nesse exemplo criei um alias, onde o lsa será um comando que equivale ao ls -ltra
+- unalias <comando_atalho>: Irá excluir o alias que desejado
+
 
 --- Abrir arquivo (não programa) e executar programa.
 - open <arquivo>: vai abrir o ARQUIVO (não programa), fora do terminal, igual o Start-process do windows.
@@ -244,6 +251,13 @@ notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação q
 
 logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
 -h significa host, -u significa usuario e -p significa password
+
+
+
+
+
+
+
 
 docker exec -ti <ID_CONTAINER> bash
 .
