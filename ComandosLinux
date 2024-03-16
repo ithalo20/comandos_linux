@@ -4,6 +4,8 @@ Crtl+H: Usado em um diretório ele mostrará os arquivos ocultos.
 
 Comandos no terminal Linux:
 
+cat /etc/shells: Vai listar todos os Shells instalados na sua máquina.
+
 --- Pipe "|"
 
 É um operador onde consegue juntar 2 comandos ou mais exemplo: fortune | cowsay. Esse comomando ira fazer o fortune que é um programa de gerar frases falar essa frase no Cowsay.
@@ -141,15 +143,24 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - ls -ltr: Mostra os arquivos ja com as permissoes, peso dos arquivos, em ordem de DATA DE ALTERAÇÃO REVERSA, por conta do parametro "-t" = time, -r" = reverse
 - ls -lh: mostra os arquivos ja com as permissões, data de alteração, em ordem alfabética e o peso dos arquivos em kilobytes, por conta do parametro "-h" que facilita a visão humana dos números.
 - ls --color=auto: Ele vai colocar cores em arquivos respectivamente conforme o seu tipo (terminal ja faz isso automaticamente), temos outras variantes como --color=never para nunca colocar cores
-- tree <pasta>: Vai mostrar em formato de arvore, como fosse os packages de Java
+- ls -B: Ele NÃO lista os arquivos Backups (Arquivos backups por convenção são aqueles que termina com "~" ex: teste1~)
+- ls <pasta1> <pasta2>: Ele consegue fazer ls consecutivamente em pasta diferentes se você apontar a pasta que deverá ser feito o ls.
+- ls -d <pasta1> <pasta2>: Ele consegue filtrar as duas pasta e trazer apenas o ls delas, é igual o | grep
+- ls -ln: Ele lista tudo e em vez de trazer o nome do usuario:grupo, ele traz UID:GID no lugar de nome e grupo.
+- ls -F: Indica se é link simbolico (atalho@) se é arquivo executavel (executavel*) e se é diretório (diretorio/)
+- tree: Mostra toda a estrutura da pasta em formato de arvore
+- tree -A: Mostra de forma mais limpa, (USAR SOMENTE SE O TERMINAL MOSTRAR DE FORMA ZOADA)
+- tree -h: Vai mostrar o tamanho dos diretórios, de forma humana
+- tree <pasta>: Vai mostrar em formato de arvore o que tem no arquivo, lembra o packages do Java.
 - find / -name <arquivo_ou_pasta>: Vai procurar no linux inteiro arquivos ou pasta com esse nome, porém ele mostra as saidas de erros, para ficar mais limpo de um 2> /dev/null (COLOCAR SUDO ANTES DO find)
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
 - | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
 
 --- Criação de diretório, remoção de diretorio e arquivos, e move arquivo.
 - mkdir: cria diretórios
-- mkdir -p: consegue criar varios diretorios dentro do outro
+- mkdir -p: consegue criar varios diretorios dentro do outro (ex: mkdir diretorio1/diretorio2 e por ai vai)
 - rm: Exclui diretorio, arquivos, etc
+- rm -i: Ele pergunta antes de fazer a ação de excluir, isso pode trazer mais segurança.
 - rm -rf: força a exclusão de arquivos, diretorios, etc
 - mv: consegue mover um arquivo ou modificar o nome, (ex mover: mv <arquivo> /endereço), (ex: renomear: mv <arquivo> <novoNomeDeArquivo>)
 
@@ -158,17 +169,17 @@ unzip <pacote>: Vai descompactar pacotes.zip
 wc <arquivo>: "Word count", como o nome sugere, ele retorna o números de palavras em um arquivo que contem texto
 ex: "wc long.txt", resultado: 37 207 1000 long.txt, isso significa: 37 linhas, 207 palavras e 1000 bytes e <nome do arquivo>
 
-wc -w <arquivo>: A diferença do wc é que com o argumento -w, ele mostra apenas a quantidade de PALAVRAS e o NOME.man
+wc -w <arquivo>: A diferença do wc é que com o parametro -w, ele mostra apenas a quantidade de PALAVRAS e o NOME.man
 
 wc -l <arquivo>: Conta apenas a quantidade de linhas que o arquivo possui.
 
 --- Copiar
 - cp: Faz uma copia seja na mesma pasta, ou em algum outro endereço, -r é para diretorio (ex: cp <nome> <copia>)(ex: cp <nome> /endereço)(copia de diretorio ex: cp -r <nome> <nomedacopia>) (ex: cp -r <nome> /endereço)
-
+- cp -R: O parametro -R ele consegue copiar arquivos de dispositivos, ja o -r ignora os arquivos de dispositivos.
+- cp -a: Equivale a cp -dpR, é recomendavel utilizar se for uma copia com exatidão pra evitar problemas, ele copia literalmente da forma mais perfeita, geralmente utilizada pra transferir pra outro linux
 - scp (Secure Copy): Mesma função do cp, a diferença fica que é usado para servidores, entao vc consegue jogar de uma maquina local para um servidor.
-exemplo de scp: scp [other options] [source username@IP]:/[directory and file name] [destination username@IP]:/[destination directory]
-		scp -p root@162.168.1.1:/media/scp.png edward@162.168.1.2:/desktop/destination
-
+exemplo de scp: scp <arquivo> <usuario>@<host_maquina>:<caminho>
+exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (PRESTE ATENÇÃO TEM UM . NO FINAL).
 
 --- Consumo de memória, tamanho do arquivo, tamanho de disco, tamanho de block volume
 - free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
@@ -195,16 +206,24 @@ exemplo de scp: scp [other options] [source username@IP]:/[directory and file na
 
 --- Criar arquivo, editar arquivo e texto, ler arquivo, criar link-simbolico, saida em um arquivo.
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
+- cat -n: Vai ler o arquivo porém com numero de linhas
+- cat -b: Vai ler o arquivo e vai contar o numero de linhas, porém ele ignora as linhas em brancos para contagem.
+- cat -E: Vai ler o arquivo e coloca um "$" no final de cada linha, assim facilitando se tem espaço em branco no final da linha.
+- cat -T: Vai ler o arquivo e identifica cada identeção feita pelo Tab, reconhecida como (^I)
+- zcat: Vai ler o arquivo.gz, evitando que precise descompactar para fazer a leitura
+- bzcat: Vai ler o arquivo.bz2, evitando que precise descompactar para fazer a leitura
+- xzcat: Vai ler o arquivo.xz, evitando que precise descompactar para fazer a leitura
+- tac: Vai ler o arquivo com as linhas invertidas.
 - <comando> > <novo_arquivo>: Ele consegue subscrever o que o comando fez em um arquivo exemplo: (ls > arquivo), ele apaga toda a informação dentro do arquivo e joga a saída do comando dentro do arquivo.
 - <comando> >> <nova_arquivo>: exemplo: (ls >> arquivo)ele vai jogar a saida do ls para esse arquivo, diferente do ">", ele não subscreve o arquivo, ele adiciona a informação com o arquivo preenchido
 - grep <palavra_desejada>: Ele serve para abrir igual o cat ja filtrando a palavra certa, ele tambem pode ser usado com outro comando para adicionar filtro com | grep <palavra_desejada>
 - touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - nano (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
-- ln -s <enereço_do_diretorio> <nome_do_link_simbolico>: Ira criar um link simbolico daquele endereço que você deseja, desde diretório até arquivos.
-
+- ln -s <diretorio/arquivo> <nome_do_link_simbolico>: Ira criar um link simbolico daquele endereço que você deseja, desde diretório até arquivos.
+- cp -s <diretorio/arquivo> <nome_do_link_simbolico>: Mesma coisa que o ln -s, apenas uma forma diferente.
 -- Setagem de comando
-- alias: ele é um atalho para fazer um comando apenas digitando poucas coisas como, ll ele faz uma coisa e por ai vai.
+- alias: ele é um atalho para fazer um comando apenas digitando poucas coisas	 como, ll ele faz uma coisa e por ai vai.
 - alias lsa='ls -ltra': Nesse exemplo criei um alias, onde o lsa será um comando que equivale ao ls -ltra
 - unalias <comando_atalho>: Irá excluir o alias que desejado
 

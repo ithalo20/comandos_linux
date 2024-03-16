@@ -4,7 +4,7 @@ FHS
 
 /bin = São os binários todos os arquivos executaveis, são os comandos do linux (ls, cat, vi, vim, etc) 
 /boot = São os arquivos essenciais para a inicialização do sistema *Curiosidade (o kernel fica no /boot, o nome dele é vmlinuz)
-/dev = Vem de device, fica todos os dispositivos do sistema (HD, SDD, Mouse, Impressora, Pen-Drive, Teclado, Terminais e por ai vai.
+/dev = Vem de device, fica todos os dispositivos do sistema (HD, SDD, Mouse, Impressora, Pen-Drive, Teclado, Terminais e por ai vai)
 /etc = É o diretório que terá todos os arquivos de configurações globais. 
 /home = É o diretório que tem a home dos usuarios.
 /lib = Bibliotecas essenciais do sistema, de binários localizados em /bin e /sbin (Um exemplo são os drivers)
@@ -26,6 +26,39 @@ FHS
 Um comando interno é, é um comando que esta dentro do interpretador do próprio Shell, e é mais rapido que o comado externo.
 Um comando externo é, um comando que esta fora do interpretador e fizemos alguns macetes para colocar.
 
-which <comando>: Vai mostrar onde está o comando.
-whereis <comando>: Vai mostrar onde está o comando.
-type <comando>: Vai informar que tipo de comando é esse, se ele é interno (shell builtin), alias ou externo (hashed).
+- which <comando>: Vai mostrar onde está o comando.
+- whereis <comando>: Vai mostrar onde está o comando.
+- type <comando>: Vai informar que tipo de comando é esse, se ele é interno (shell builtin), alias ou externo (hashed).
+
+- ls --color=auto: Ele vai colocar cores em arquivos respectivamente conforme o seu tipo (terminal ja faz isso automaticamente), temos outras variantes como --color=never para nunca colocar cores
+- ls -B: Ele NÃO lista os arquivos Backups (Arquivos backups por convenção são aqueles que termina com "~" ex: teste1~)
+- ls <pasta1> <pasta2>: Ele consegue fazer ls consecutivamente em pasta diferentes se você apontar a pasta que deverá ser feito o ls.
+- ls -d <pasta1> <pasta2>: Ele consegue filtrar as duas pasta e trazer apenas o ls delas, é igual o | grep
+- ls -ln: Ele lista tudo e em vez de trazer o nome do usuario:grupo, ele traz UID:GID no lugar de nome e grupo.
+- ls -F: Indica se é link simbolico (atalho@) se é arquivo executavel (executavel*) e se é diretório (diretorio/)
+
+- mkdir -p: consegue criar varios diretorios dentro do outro (ex: mkdir diretorio1/diretorio2 e por ai vai)
+- tree: Mostra toda a estrutura da pasta em formato de arvore
+- tree -A: Mostra de forma mais limpa, (USAR SOMENTE SE O TERMINAL MOSTRAR DE FORMA ZOADA)
+- tree -h: Vai mostrar o tamanho dos diretórios, de forma humana
+- tree <pasta>: Vai mostrar em formato de arvore o que tem no arquivo, lembra o packages do Java.
+
+- cat -n: Vai ler o arquivo porém com numero de linhas
+- cat -b: Vai ler o arquivo e vai contar o numero de linhas, porém ele ignora as linhas em brancos para contagem.
+- cat -E: Vai ler o arquivo e coloca um "$" no final de cada linha, assim facilitando se tem espaço em branco no final da linha.
+- cat -T: Vai ler o arquivo e identifica cada identeção feita pelo Tab, reconhecida como (^I)
+
+- zcat: Vai ler o arquivo.gz, evitando que precise descompactar para fazer a leitura
+- bzcat: Vai ler o arquivo.bz2, evitando que precise descompactar para fazer a leitura
+- xzcat: Vai ler o arquivo.xz, evitando que precise descompactar para fazer a leitura
+- tac: Vai ler o arquivo com as linhas invertidas.
+
+- rm -i: Ele pergunta antes de fazer a ação de excluir, isso pode trazer mais segurança.
+
+** DICA: Quando tivermos arquivos que tem a mesma inicial e queremos apagar apenas esses arquivos em especifico exemplo: arquivo1 arquivo2 arquivo3, podemos fazer "rm -rf arqui*" **
+
+- cp -R: O parametro -R ele consegue copiar arquivos de dispositivos, ja o -r ignora os arquivos de dispositivos.
+- cp -s <diretorio/arquivo> <nome_do_link_simbolico>: Cria link simbolico, extamente a mesma coisa que o ln -s, apenas uma forma diferente.
+- cp -a: Equivale a cp -dpR, é recomendavel utilizar se for uma copia com extrema zatidão pra evitar problemas, ele copia literalmente da forma mais perfeita, geralmente utilizada pra transferir pra outro linux
+
+
