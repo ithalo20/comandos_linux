@@ -121,6 +121,10 @@ unzip <pacote>: Vai descompactar pacotes.zip
 
 --- Calendario, data e hora.
 - date: mostra a data atual, horario e o GMT que o sistema esta.
+- date +"%d": Mostra o dia
+- date +"%m": Mostra o mês
+- date +"%y": Mostra o ano
+- date +"%d-%m-%y" 
 - date -s <mm/dd/yyyy>: altera a data mes, dia e ano.
 - date -s <hh:mm:ss>: altera o horario
 - cal: mostra o calendario
@@ -154,7 +158,9 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - tree <pasta>: Vai mostrar em formato de arvore o que tem no arquivo, lembra o packages do Java.
 - find / -name <arquivo_ou_pasta>: Vai procurar no linux inteiro arquivos ou pasta com esse nome, porém ele mostra as saidas de erros, para ficar mais limpo de um 2> /dev/null (COLOCAR SUDO ANTES DO find)
 - locate <nome do arquivo>: localiza o arquivo desejado, mostrando o endereço dele.
-- | grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
+- grep <Nome da Pesquisa>: Filtra a palavra que voce digitar apos o | grep
+- grep -v: Ele inverte o filtro, ele trás tudo exceto o grep q vc mandou.
+= grep -i: Ignora maiusculo e minusculo.
 
 --- Criação de diretório, remoção de diretorio e arquivos, e move arquivo.
 - mkdir: cria diretórios
@@ -194,6 +200,7 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 - more: Assim como o cat ele mostra o texto do arquivo, porém a diferença é se tiver faltando espaço ele mostra -mais-, ai vc fica apertando enter pra mostrar linha por linha do que falta.
 - more -5: vai mostrar a quantidade de linhas que eu pedi, poderia colocar mais linhas ou menos. (ex: more -10 <nome_arquivo> , vai mostrar 10 linhas do arquivo)
 - more +5: vai apagar as quantidade de linhas que eu pedi (ex more +10 <nome_arquivo>, vai apagar as dez primeiras linhas do arquivo).
+- less: É um upgrade do more, você consegue rolar pra cima e pra baixo com o mouse, diferente do more e consegue colocar um filtro de pesquisa com "/" igual no vim
 
 --- Ler primeiras linhas do arquivo
 - head <arquivo>: Mostra as 10 primeiras linhas do arquivo
@@ -208,6 +215,7 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 - cat: Mostra o texto do arquivo, ou mostra o que tem dentro dele, caso n for texto.
 - cat -n: Vai ler o arquivo porém com numero de linhas
 - cat -b: Vai ler o arquivo e vai contar o numero de linhas, porém ele ignora as linhas em brancos para contagem.
+- nl <arquivo>: Exatamente a mesma coisa que o cat -b acima.
 - cat -E: Vai ler o arquivo e coloca um "$" no final de cada linha, assim facilitando se tem espaço em branco no final da linha.
 - cat -T: Vai ler o arquivo e identifica cada identeção feita pelo Tab, reconhecida como (^I)
 - zcat: Vai ler o arquivo.gz, evitando que precise descompactar para fazer a leitura
@@ -217,6 +225,7 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 - <comando> > <novo_arquivo>: Ele consegue subscrever o que o comando fez em um arquivo exemplo: (ls > arquivo), ele apaga toda a informação dentro do arquivo e joga a saída do comando dentro do arquivo.
 - <comando> >> <nova_arquivo>: exemplo: (ls >> arquivo)ele vai jogar a saida do ls para esse arquivo, diferente do ">", ele não subscreve o arquivo, ele adiciona a informação com o arquivo preenchido
 - grep <palavra_desejada>: Ele serve para abrir igual o cat ja filtrando a palavra certa, ele tambem pode ser usado com outro comando para adicionar filtro com | grep <palavra_desejada>
+
 - touch <arquivo>: é usado para criar arquivos vazios, da para criar varios (ex: touch <arquivo1> <arquivo2> <arquivo3>) nesse exemplo iria criar 3 arquivos vazios
 - vim <nome_do_arquivo>: consegue editar o arquivo, porém se não existir aquele arquivo, ele abre o editor e apos salvar ele cria o arquivo.
 - nano (quase não uso): consegue editar e criar um arquivo também, porém não muito usado por ser estranho, preferencia as opções acima.
@@ -271,11 +280,21 @@ notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação q
 logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
 -h significa host, -u significa usuario e -p significa password
 
+--- Ordenar ou desordenar em ordem alfabetica e numerica
 
+- sort: É um comando que consegue trazer de forma em ordem alfabetica as linhas ex: sort <arquivo>
+- sort -r: Ele consegue deixar de forma invertida do sorte normal.
+- sort -n: É um comando que traz em ordem alfabetica e em ordem númerica do menor para o maior.
+- sort -c: Ele avisa se esta ordenado ou não.
 
+--- Mudar atributos dos arquivos.
 
+- chattr: Permite dar ou retirar um atributo oua um determinado arquivo, ou diretório. (ex: chattr +1 <arquivo>) *Lembrando que o i protege o arquivo até do usuario root, pra poder excluir/mover/editar o arquivo fica blindado só retirando i* e para tirar (ex: chattr -i <arquivo>)
+- chattr +a: Ele blinda o arquivo para evitar que seja editado, permite apenas o append que é o ">>", caso utilizar o ">" ele não deixa, nem o vim.
+- chattr +c: 
 
-
+- lsattr: Mostra os atributos dos arquivos, se for diretório vai mostrar de todos os arquivos/diretorio dentro dele também
+- lsattr -d: Mostra os atributos do diretório, sem mostrar dos arquivos/diretorios dentro dele.
 
 
 docker exec -ti <ID_CONTAINER> bash

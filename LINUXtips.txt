@@ -1,3 +1,11 @@
+[ DAY 1 ]
+
+-rw-rw---- = Quando não possui inicial significa que é um executavel
+drw-rw---- = A Inicial "d" significa que é um diretório
+lrw-rw---- = A Inicial "l" significa que é um Symbolic Link, resumindo de forma inchuta é um atalho
+brw-rw---- = A Inicial "b" significa que é um dispositivo de bloco, aquele que armazena informação como um HD, SSD, Pen-Drive etc.
+crw-rw---- = A Inicial "c" é dispositivo de caracter, é um dispositivo que está recebendo e enviando informação, terminal (tty), impressora (lp), mouse (psaux) é um exemplo disso.
+
 [ DAY 2 ]
 
 FHS
@@ -61,4 +69,32 @@ Um comando externo é, um comando que esta fora do interpretador e fizemos algun
 - cp -s <diretorio/arquivo> <nome_do_link_simbolico>: Cria link simbolico, extamente a mesma coisa que o ln -s, apenas uma forma diferente.
 - cp -a: Equivale a cp -dpR, é recomendavel utilizar se for uma copia com extrema zatidão pra evitar problemas, ele copia literalmente da forma mais perfeita, geralmente utilizada pra transferir pra outro linux
 
+[ DAY 4 ]
 
+Coringas:
+
+*Lembrando que coloquei o comando "ls" para facilitar, mas pode ser usado em outras situações claramente* 
+
+*Coringa "*" *
+- ls <inicial>*: Vai retornar todos os arquivos com a inicial digitada exemplo arquivo*
+- ls *<final>: Vai retornar todos os arquivos com os finais digitados exemplo *.txt
+- ls <inicial>*<final>: Vai retornar arquivo com a inicial digitado e o final digital exemplo: a*r
+
+*Coringa "?" *
+
+- ls m?: Vai retornar todos os arquivos com dois caracteres, pois o "?" e a string que esta faltando porém e desconhecida, logo retornara todas as strings que poderia ser pra preencher.
+- ls ?m: Mesma coisa que o de cima só que em ordem diferente, podemos usar o ? para varias ordens
+
+podemos misturar coringas exemplo: ls a?t*: nesse exemplo provavelmente retornaria o apt já que o ? do meio pode ser preenchido por qualquer string e depois * que trará todo o resultado com esse filtro.
+
+*Coringa "[]" *
+
+O [] ele consegue preencher de uma letra até outra especificada
+
+- ls m[a-c]: Ele vai filtrar o proximo caracter que esta faltando dentro desse range de [a-c]
+- ls m[^a-c]: É o contrario, ele vai filtrar o proximo caracter que não seja entre [a-c] o "^" é como fosse negação tipo um "not" no python
+
+sort: É um comando que consegue trazer de forma em ordem alfabetica as linhas ex: sort <arquivo>
+sort -r: Ele consegue deixar de forma invertida do sorte normal.
+sort -n: É um comando que traz em ordem alfabetica e em ordem númerica do menor para o maior.
+sort -c: Ele avisa se esta ordenado ou não.
