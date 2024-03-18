@@ -11,6 +11,10 @@ cat /etc/shells: Vai listar todos os Shells instalados na sua máquina.
 É um operador onde consegue juntar 2 comandos ou mais exemplo: fortune | cowsay. Esse comomando ira fazer o fortune que é um programa de gerar frases falar essa frase no Cowsay.
 E assim gerando uma Pipeline que é essa linha de pipes.
 
+* O operador && é um operador de curto-circuito condicional. Ele executa o próximo comando somente se o comando anterior for bem-sucedido (ou seja, se retornar um código de saída 0). Se o primeiro comando falhar (retornar um código de saída diferente de 0), os comandos subsequentes não serão executados. *
+
+* O ponto e vírgula ; é um operador de sequência. Ele simplesmente executa os comandos em sequência, independentemente do sucesso ou falha de cada comando. Isso significa que o segundo comando será executado independentemente do resultado do primeiro. *
+
 cat /proc/cpuinfo: Vai retornar informações da minha CPU
 
 
@@ -115,6 +119,7 @@ unzip <pacote>: Vai descompactar pacotes.zip
 
 --- Compara as modificações do arquivo
 - diff <arquivo1> <arquivo2>: Compara linha por linha entre os dois arquivos e mostra as respectivas diferenças
+- diff -u <arquivo1> <arquivo2>: Ele mostra de forma mais humana as diferenças de conteudo, igualzinho como o Git mostra quando comparamos a versão antiga com a atual.
 - diff -b <arquivo1> <arquivo2>: Ignora espaço em branco como possível diferença.
 - diff -i <arquivo1> <arquivo2>: Ele passa a não diferençar caracteres maiusculo e minúsculos.
 - diff -q <arquivo1> <arquivo2>: Apenas diz se o arquivo é diferente, ele não trás retorno algum.
@@ -187,11 +192,20 @@ wc -l <arquivo>: Conta apenas a quantidade de linhas que o arquivo possui.
 exemplo de scp: scp <arquivo> <usuario>@<host_maquina>:<caminho>
 exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (PRESTE ATENÇÃO TEM UM . NO FINAL).
 
---- Consumo de memória, tamanho do arquivo, tamanho de disco, tamanho de block volume
+--- Consumo de memória, tamanho do arquivo, tamanho de disco, tamanho de block volume e partições de memoria
 - free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
 - du: Mostra o tamanho do arquivo, diretorio, du -k (kb), du -m (mb), etc
 - df: Mostra o tamanho do Disco e suas partiçõe se tiver, lembre-se tem variante como du -h (human), etc
-- lsblk: Mostra o tamanho do Block Volume.
+- df -hT -t ext4: Mostra a memoria desde a pasta raiz, logo é a memoria de tudo
+- fdisk /dev/<disco>: Comando bastante util para fazer partição de disco, um comando bem rico vale a pena ver com cuidado, quando entrar nele aperte "m" para ter o help de todas as opções.
+- fdisk -l /dev/<disco>: Mostra todas as informações do disco e suas partições.
+- gdisk /dev/<disco>: Consegue criar GPT (partição de disco) com mais recursos avançados que o fdisk como backup para um arquivo e aparentemente mais simples de fazer.
+- parted /dev/<disco>: Consegue fazer assim como os demais (gdisk, fdisk) assim que vc digitar isso, você faz o comando "print" pra ver se tem alguma partição, ai depois da um help para poder saber mexer nele, lembrando que tem o help de cada comando também para ter mais detalhes, o parted tem como configurar até para fazer boot na partição.
+- cfdisk /dev/<disco>: Assim como (fdisk, gdisk, parted) ele consegue fazer as partições porém com uma interface no terminal mais simples e grafica, *EU GOSTEI MAIS DESSA FORMA COMPARA AS DEMAIS*
+- mkfs.ext4 /dev/<partição>: Comando utilizado para formatar o dispositivo para uso do usuario, lembrando que apaga todos os dados tem q tomar cuidado. *Eu coloquei o .ext4, mas tem outros tipos de formatação*
+- wipefs -a /dev/<disco>: Comando para refazer a partição de disco.
+
+- lsblk: Mostra o tamanho do Block Volume. 
 
 --- Imprimir mensagem no terminal
 - echo "mensagem": ira imprimir no terminal a mensagem que voce mandou após o echo.
@@ -291,10 +305,54 @@ logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
 
 - chattr: Permite dar ou retirar um atributo oua um determinado arquivo, ou diretório. (ex: chattr +1 <arquivo>) *Lembrando que o i protege o arquivo até do usuario root, pra poder excluir/mover/editar o arquivo fica blindado só retirando i* e para tirar (ex: chattr -i <arquivo>)
 - chattr +a: Ele blinda o arquivo para evitar que seja editado, permite apenas o append que é o ">>", caso utilizar o ">" ele não deixa, nem o vim.
-- chattr +c: 
-
+- chattr +c: O arquivo será armazenado de forma compactada, ai quando o sistema abrir ele descompacta sozinho e executa, mas nem todos os linux tem suporte a isso.
+- chattr +s: Ele é o atributo onde faz que o arquivo na hora de ser excluido demore mais, porém exclui de forma mais segura e completa.
+- chattr +S: Ele faz que o arquivo que foi salvo seja instantaneamente salva no disco de forma assincrona e imediata, interessante usar em arquivo de extrema importancia.
+- chattr +D: Ele faz que o diretório que foi salvo seja instantaneamente salva no disco de forma assincrona e imediata, interessante usar em diretório com arquivos de extrema importancia.
+- chattr +d: Faz que o diretorio/arquivo com esse atributos nao sejam incluidos no backup dumb
 - lsattr: Mostra os atributos dos arquivos, se for diretório vai mostrar de todos os arquivos/diretorio dentro dele também
 - lsattr -d: Mostra os atributos do diretório, sem mostrar dos arquivos/diretorios dentro dele.
+
+--- Filtrar coluna pelo separado.
+
+cut -d "<delimitador" -f <numero_coluna> <arquivo>: É um comando que lembra o awk para conseguir filtrar o separados (ex: "cut -d "," -f 1 <arquivo>" vai filtrar apenas a primeira coluna.)
+
+--- Primeiro Plano / Segundo plano
+
+- fg <numero da fila>: É um comando que passa o que esta em segundo plano para primeiro
+- jobs: É um comando que identifica o que está rodando em segundo plano (Um exemplo que fiz foi colocar um sleep 10, e depois executar o jobs, ele identificou que esta rodando em segundo plano)
+- bg <numero da fila>: É um comando que passa para segundo plano (Quando estiver em primeiro plano voce da um Crtl+Z para parar, e depois manda o bg <numero da fila> pra deixar de background)
+- kill %<numero da fila>: É um comando para matar o que esta em segundo plano. (Da pra matar também caso tiver em primeiro plano COM CRTL+C
+
+--- Comando screen, tmux, perfeito para detachar e aumentar a produtividade
+
+- screen: É um comando que você consegue criar outras telas para rodar simultaneamente como fosse uma aba. *Comando super interessante*
+
+screen: criar sessão
+CRTL+ a c: criar outra tela
+CRTL+ a w: mostra quantas telas tem criadas
+CRTL+ a a: alterna entre uma e outra tela
+CRTL+ a <numero_da_screen>: alterna entre a sua tela e a screen desejada
+CRTL+ a d: detachar a screen, para deixar ela executando de forma detachada como fosse em segundo plano, desconectada
+screen -ls: consegue ver as screens que estão detachada no momento e mostra o seu PID
+screen -x <PID>: Faz com que você reconecte com essa screen detachada.
+
+- tmux: Semelhante ao screen
+
+tmux new: Começa a sessão no tmux
+CRTL+ b c: criar outra tela
+CRTL+ b <numero_da_scren>: alterna entre a sua tela e a screen desejada
+CRTL+ b d: detachar a screen, para deixar ela executando de forma detachada como fosse em segundo plano, desconectada
+tmux ls: consegue ver as screens que estão detachada no momento
+tmux attach: Faz com que você reconecte com essa screen detachada.
+CRTL+ b ": Divide a screen ao meio na horizontal
+CRTL+ b %: Divida a screen ao meio na vertical
+CRTL+ pra cima: Troca para tela de cima
+CRTL+ pra baixo: Troca para tela de baixo
+CRTL+ pra esquerda: Troca para tela esquerda
+CRTL+ pra direito: Troca para tela direita
+
+
 
 
 docker exec -ti <ID_CONTAINER> bash

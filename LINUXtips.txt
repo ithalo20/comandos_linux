@@ -19,7 +19,7 @@ FHS
 /mnt = Sistema de arquivos montado temporariamente
 /lost+found = Arquivos para recuperação, geralmente gerado por uma queda de energia ou fechamento inadequado, serve para ser recuperado.
 /opt = Antigamente o opt era onde ficava armazenados os pacotes de instalação de softwares
-/proc = É um diretório virtual onde tem arquivos com informações de todo sistema, CPU, Memoria, Disposito de Caracter, Dispositivo de Bloco entre outros.
+/proc = É um diretório virtual onde tem arquivos com informações de todo sistema, CPU, Memoria, Disposito de Caracter, Dispositivo de Bloco entre outros e também voce consegue acessar o PID do proceso nele.
 /root = É o diretório do usuário root (super usuario), onde tem todas as informações do mesmo
 /run = É um diretório com informações temporaria, ele mostra tudo que esta rodando de fundo, pessoas que estão logadas.
 /sbin = A diferença do bin e o sbin, é que o sbin é referente ao Superusuario (root), então são comando que só ele tem permissão pra utilizar.
@@ -28,6 +28,11 @@ FHS
 /tmp = É um diretório temporaria, tudo que esta armazenado dele após o PC ser desligado, ele apaga (NÃO RECOMENDADO COLOCAR BACKUP NELE)
 /usr = É o segundo maior diretório perdendo apenas para o diretorío raiz, ele tem a mesma função que o raiz faz as separações, mas de arquivos que não interfira no funcionamento do Linux em si.
 /var = É um diretório de variáveis, trás informações de log, debugs e por ai vai.
+
+sba = Primeira memoria de disco | sba1 = Primeira partição da sba | sba2 = Segunda partição de sba | sba3 = Terceira partição de sba | e assim consecutivamente.
+sbb = Segunda memoria de disco | sbb1 = Priemira partição da sbb | sbb2 = Segunda partição de sbb | sba3 = Terceira partição de sbb | e assim consecutivamente.
+sbc = Terceira memoria de disco | sbc1 = Primeira partição da sbc | sba2 = Segunda partição de sbc | sba3 = Terceira partição de sbc | e assim consecutivamente.
+e assim por diante
 
 [ DAY 3 ]
 
@@ -98,3 +103,60 @@ sort: É um comando que consegue trazer de forma em ordem alfabetica as linhas e
 sort -r: Ele consegue deixar de forma invertida do sorte normal.
 sort -n: É um comando que traz em ordem alfabetica e em ordem númerica do menor para o maior.
 sort -c: Ele avisa se esta ordenado ou não.
+
+[ DAY 5 ]
+
+** PID, conseguimos acessar ele pelo /proc, todo os processos ficará lá **
+
+- cut -d "<delimitador" -f <numero_coluna> <arquivo>: É um comando que lembra o awk para conseguir filtrar o separados ex: "cut -d "," -f 1 <arquivo>" vai filtrar apenas a primeira coluna.
+
+- jobs: É um comando que identifica o que está rodando em segundo plano
+
+* O operador && é um operador de curto-circuito condicional. Ele executa o próximo comando somente se o comando anterior for bem-sucedido (ou seja, se retornar um código de saída 0). Se o primeiro comando falhar (retornar um código de saída diferente de 0), os comandos subsequentes não serão executados. *
+
+* O ponto e vírgula ; é um operador de sequência. Ele simplesmente executa os comandos em sequência, independentemente do sucesso ou falha de cada comando. Isso significa que o segundo comando será executado independentemente do resultado do primeiro. *
+
+STAT de processos do PID
+
+STAT: 
+
+s = Processo importante que esta executando
+D = I/O de disco, quando algum serviço esta utilizando muito de disco
+I = Oscioso, esta parado recebendo algum instrução pra fazer algo
+R = Running
+E = Processo zumbi, quando um programa roda um outro programa, porém o outro programa morre, e esse software fica solto sozinho, então ele fica lá boiando.
+X = Nunca deve ser exibido, é um processo morto
+
+kill -15 <PID>: Finaliza de forma mais tranquila
+kill -9 <PID>: Finaliza de forma bruta sem perguntar nada
+
+- screen: É um comando que você consegue criar outras telas para rodar simultaneamente como fosse uma aba. *Comando super interessante*
+
+screen: criar sessão
+CRTL+ a c: criar outra tela
+CRTL+ a w: mostra quantas telas tem criadas
+CRTL+ a a: alterna entre uma e outra tela
+CRTL+ a <numero_da_screen>: alterna entre a sua tela e a screen desejada
+CRTL+ a d: detachar a screen, para deixar ela executando de forma detachada como fosse em segundo plano, desconectada
+screen -ls: consegue ver as screens que estão detachada no momento e mostra o seu PID
+screen -x <PID>: Faz com que você reconecte com essa screen detachada.
+
+- tmux: Semelhante ao screen
+
+tmux new: Começa a sessão no tmux
+CRTL+ b c: criar outra tela
+CRTL+ b <numero_da_scren>: alterna entre a sua tela e a screen desejada
+CRTL+ b d: detachar a screen, para deixar ela executando de forma detachada como fosse em segundo plano, desconectada
+tmux ls: consegue ver as screens que estão detachada no momento
+tmux attach: Faz com que você reconecte com essa screen detachada.
+CRTL+ b ": Divide a screen ao meio na horizontal
+CRTL+ b %: Divida a screen ao meio na vertical
+CRTL+ pra cima: Troca para tela de cima
+CRTL+ pra baixo: Troca para tela de baixo
+CRTL+ pra esquerda: Troca para tela esquerda
+CRTL+ pra direito: Troca para tela direita
+
+[ DAY 6]
+
+Partições de discos.
+
