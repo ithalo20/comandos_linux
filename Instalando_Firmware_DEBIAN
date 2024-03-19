@@ -1,0 +1,44 @@
+Para aumentar o repositório apt e obter acesso a mais firmware, você pode seguir estes passos:
+
+1 - Adicionar o repositório de firmware não livre: Muitas distribuições Linux têm repositórios separados para firmware não livre. No caso do Debian e derivados (como o Ubuntu), você pode adicionar o repositório non-free. Isso pode ser feito editando o arquivo /etc/apt/sources.list. Abra-o com um editor de texto, como o nano:
+
+bash:
+
+sudo vim /etc/apt/sources.list
+
+E adicione non-free ao final das linhas que começam com deb, por exemplo:
+
+
+deb http://deb.debian.org/debian/ buster main non-free
+deb-src http://deb.debian.org/debian/ buster main non-free
+
+Salve e feche o arquivo (no nano, pressione Ctrl + O, Enter para salvar, Ctrl + X para sair).
+
+Atualizar o índice de pacotes: Depois de adicionar o repositório, atualize o índice de pacotes do apt para que ele reconheça as mudanças. Execute o seguinte comando:
+
+bash
+
+sudo apt update
+
+Procurar e instalar o firmware desejado: Agora que você tem acesso a mais pacotes, você pode procurar pelo firmware Realtek e instalá-lo. Use o seguinte comando para pesquisar por pacotes contendo "realtek":
+
+bash
+
+apt search realtek
+
+Isso mostrará uma lista de pacotes relacionados à Realtek disponíveis para instalação. Encontre o pacote de firmware específico que você precisa e instale-o com o comando apt install.
+
+Por exemplo, se você estiver procurando por firmware para uma placa de rede Wi-Fi Realtek, você pode encontrar um pacote chamado firmware-realtek
+
+
+-----------------
+
+Uma forma de listar as firmwares que estão desatualizada de forma mais automatica é:
+
+
+sudo apt install fwupd
+
+sudo fwupdmgr get-devices (Vai mostrar algumas firmwares)
+
+sudo fwupdmgr update (Vai listar e atualizar)
+

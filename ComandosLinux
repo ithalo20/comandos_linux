@@ -171,7 +171,7 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - mkdir: cria diretórios
 - mkdir -p: consegue criar varios diretorios dentro do outro (ex: mkdir diretorio1/diretorio2 e por ai vai)
 - rm: Exclui diretorio, arquivos, etc
-- rm -i: Ele pergunta antes de fazer a ação de excluir, isso pode trazer mais segurança.
+- rm -i: Ele pergunta antes de fazer a ação de excluir, isso pode trazer maids segurança.
 - rm -rf: força a exclusão de arquivos, diretorios, etc
 - mv: consegue mover um arquivo ou modificar o nome, (ex mover: mv <arquivo> /endereço), (ex: renomear: mv <arquivo> <novoNomeDeArquivo>)
 
@@ -203,8 +203,8 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 - parted /dev/<disco>: Consegue fazer assim como os demais (gdisk, fdisk) assim que vc digitar isso, você faz o comando "print" pra ver se tem alguma partição, ai depois da um help para poder saber mexer nele, lembrando que tem o help de cada comando também para ter mais detalhes, o parted tem como configurar até para fazer boot na partição.
 - cfdisk /dev/<disco>: Assim como (fdisk, gdisk, parted) ele consegue fazer as partições porém com uma interface no terminal mais simples e grafica, *EU GOSTEI MAIS DESSA FORMA COMPARA AS DEMAIS*
 - mkfs.ext4 /dev/<partição>: Comando utilizado para formatar o dispositivo para uso do usuario, lembrando que apaga todos os dados tem q tomar cuidado. *Eu coloquei o .ext4, mas tem outros tipos de formatação*
+- mkswap /dev/<partição>: Faz a partição da memoria swap, lembrando que o ideal é deixar a mesma quantidade de memoria RAM, se vc tem 16GB RAM, coloque 16GB de SWAP.
 - wipefs -a /dev/<disco>: Comando para refazer a partição de disco.
-
 - lsblk: Mostra o tamanho do Block Volume. 
 
 --- Imprimir mensagem no terminal
@@ -352,11 +352,18 @@ CRTL+ pra baixo: Troca para tela de baixo
 CRTL+ pra esquerda: Troca para tela esquerda
 CRTL+ pra direito: Troca para tela direita
 
+--- Listando componentes de hardware
+
+- lspci: Comando que lista todas os componentes que estão conectados no barramento PCI do PC.
+- lspci -vv: Comando que lista todas os componentes que estão conectados no barramento PCI do PC, só que de forma MUITO mais detalhada que o lspci normal.
+- lsusb: Comando que lista todas os componentes que estão conectados nas entradas USB do PC
+- lshw: Comando que lista todos os componentes de hardwares que está conectado no PC em formato de árvore, desde placa mão, placa de video, processador, hd, ssd, e tudo mais. *BEM COMPLETO*
+
+
 
 
 
 docker exec -ti <ID_CONTAINER> bash
-.
 
 .bashrc é o arquivo oculto onde fica as configurações pre setadas do alias, conseguimos abrir ele com o vim, toda vez que damos ls, na real estamos dando ls --color=auto, pq é um alias.
 cd ~/.bashrc

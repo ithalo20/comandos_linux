@@ -158,5 +158,63 @@ CRTL+ pra direito: Troca para tela direita
 
 [ DAY 6]
 
+- free: Mostra a quantidade de GB consumido, lembre-se que tem variantes como, free -m (mb), free -g (gb), etc
+- du: Mostra o tamanho do arquivo, diretorio, du -k (kb), du -m (mb), etc
+- df: Mostra o tamanho do Disco e suas partiçõe se tiver, lembre-se tem variante como du -h (human), etc
+- df -hT -t ext4: Mostra a memoria desde a pasta raiz, logo é a memoria de tudo
+- fdisk /dev/<disco>: Comando bastante util para fazer partição de disco, um comando bem rico vale a pena ver com cuidado, quando entrar nele aperte "m" para ter o help de todas as opções.
+- fdisk -l /dev/<disco>: Mostra todas as informações do disco e suas partições.
+- gdisk /dev/<disco>: Consegue criar GPT (partição de disco) com mais recursos avançados que o fdisk como backup para um arquivo e aparentemente mais simples de fazer.
+- parted /dev/<disco>: Consegue fazer assim como os demais (gdisk, fdisk) assim que vc digitar isso, você faz o comando "print" pra ver se tem alguma partição, ai depois da um help para poder saber mexer nele, lembrando que tem o help de cada comando também para ter mais detalhes, o parted tem como configurar até para fazer boot na partição.
+- cfdisk /dev/<disco>: Assim como (fdisk, gdisk, parted) ele consegue fazer as partições porém com uma interface no terminal mais simples e grafica, *EU GOSTEI MAIS DESSA FORMA COMPARA AS DEMAIS*
+- mkfs.ext4 /dev/<partição>: Comando utilizado para formatar o dispositivo para uso do usuario, lembrando que apaga todos os dados tem q tomar cuidado. *Eu coloquei o .ext4, mas tem outros tipos de formatação*
+- mkswap /dev/<partição>: Faz a partição da memoria swap, lembrando que o ideal é deixar a mesma quantidade de memoria RAM, se vc tem 16GB RAM, coloque 16GB de SWAP.
+- wipefs -a /dev/<disco>: Comando para refazer a partição de disco.
+- lsblk: Mostra o tamanho do Block Volume. 
+
 Partições de discos.
 
+Limites em sistemas de particionamento e sistemas de arquivos
+
+
+Esquema de particionamento 
+Partição MSDOS - 2Tb
+Partição GPT - 1Zb
+
+
+Sistemas de arquivos
+ext2
+
+Tamanho máximo da partição - 2Tb - 16Tb (número de blocos limitados a 65 536)
+
+Tamanho máximo de Arquivo - 16Gb
+ext3
+
+Tamanho máximo da partição 2Tb - 32Tb - (número de blocos limitados a 65 536)
+
+Tamanho máximo de Arquivo - 16Gb - 2Tb
+ext4
+
+Tamanho máximo da partição - 1Eb (número de blocos limitados a 65 536)
+
+Tamanho máximo de Arquivo - 16Tb (para blocos de 4k)
+
+
+Detalhes sobre o cálculo de blocos e como atingir valores máximos, podem ser 
+
+encontrados em: 
+
+https://pt.wikipedia.org/wiki/Ext4
+https://pt.wikipedia.org/wiki/Ext3
+
+[ DAY 7 ]
+
+IRQs : Interrupção de requisição onde o processador envia e recebe dados do dispositivo no caso a placa de rede.
+Faz a CPU parar o que estiver fazendo para requisitar atenção de um dispositivo. (/proc/interrupts)
+
+I/O: Input output (/proc/ioports)
+
+- lspci: Comando que lista todas os componentes que estão conectados no barramento PCI do PC.
+- lspci -vv: Comando que lista todas os componentes que estão conectados no barramento PCI do PC, só que de forma MUITO mais detalhada que o lspci normal.
+- lsusb: Comando que lista todas os componentes que estão conectados nas entradas USB do PC
+- lshw: Comando que lista todos os componentes de hardwares que está conectado no PC em formato de árvore, desde placa mão, placa de video, processador, hd, ssd, e tudo mais. *BEM COMPLETO*
