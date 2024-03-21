@@ -1,0 +1,30 @@
+Lista de Esudos
+1- Linux 
+2 - Docker
+3 - Cloud
+4 - Kubernetes
+5 - Gitlab
+   -  Workflow - Gitflow e trunk based
+   - branch
+   - repo
+   - variaveis no repo
+   - semantica
+   - tag
+   - Gitruner
+6 - CI/CD
+7 - Ansible
+ 
+1 - Desafio, subir o Rundeck em container
+	1 - Criar dockerfile com imagem com Ubuntu
+		Instalar telnet
+		Instalar o vim
+		instalar o mtr
+	2 - Banco em container separado
+	3 - Subir Rundeck
+	4 - Após a subida, gerar uma imagem com o nome teste_ithalo_rundeck e subir no docker hub
+ 
+2 - Desafio 2
+	1 - Criar um docker compose
+ 
+To Do futuro
+Estudar terraform/opentofu
