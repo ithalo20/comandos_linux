@@ -291,9 +291,6 @@ systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi infor
 
 notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação que você escreveu.
 
-logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
--h significa host, -u significa usuario e -p significa password
-
 --- Ordenar ou desordenar em ordem alfabetica e numerica
 
 - sort: É um comando que consegue trazer de forma em ordem alfabetica as linhas ex: sort <arquivo>
@@ -361,7 +358,8 @@ CRTL+ pra direito: Troca para tela direita
 
 
 
-
+logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
+-h significa host, -u significa usuario e -p significa password
 
 docker exec -ti <ID_CONTAINER> bash
 
