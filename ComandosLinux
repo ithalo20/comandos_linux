@@ -47,6 +47,7 @@ Tab: Completa a palavra que você esta digitando
 --- Downloads, instalações, listar atualizações, baixar e instalar atualizações, baixar arquivos da net para o pc local e desinstalação (APT, APT-CACHE e DPKG)
 
 - sudo apt install <pacote>: Ele busca o pacote nos repositórios oficiais do seu Linux, e caso ele exista, também busca as dependências dele, Então ele BAIXA esses pacotes (que vem com a extensão .deb) e  os INSTALA com o dpkg por baixo dos panos, LEMBRE-SE consigo baixar a dependencia solo, basta colocar o nome da dependencia no lugar do <pacote>
+- apt -y: E um parametro onde ele coloca "Yes" em todas as perguntas que tiver, entao nao precisa ficar colocando "Yes" manualmente, esse parametro ja faz isso.
 - sudo apt update: Atualiza as informações de software do seu PC
 - sudo apt upgrade: Atualiza todos os softwares.
 - sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser, que foi instalado em apt.
