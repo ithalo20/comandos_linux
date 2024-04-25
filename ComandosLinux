@@ -103,6 +103,9 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - chmod u="",g="",o="" <arquivo ou diretorio>: Permite trocar as permissões dos arquivos ou diretorios, (exemplo: sudo chmod u="rwx",g="rwx",o= "rwx"), u(usuario owner),g(grupo) e o(other)
 - chmod u+permissoes: Nesse tipo conseguimos adicionar e retirar permissoes de forma mais facil (exemplo: o+rwx | Eu adicionei no other = rwx) (exemplo: o-rwx | Eu removi no others no = rwx)
 - chmod 000 <arquivo ou diretório>: Permite trocar as permiessoes de arquivos ou diretorios, (exemplo: chmod 755 giovanna), a diferença entre o de cima é que esse é usado no formato octal (IMAGEM NA PASTA)
+- setfacl -R -m u:nome.usuario:rwx /path/: Comando usado para dar permissoes especial para um usuario em especifico: ex_sintaxe:(setfacl -R -m u:nome.usuario:rwx /home/nome.usuario)
+- setfacl -x u:nome.usuario:rwx /path/: Comando para tirar a permissao especial do usuario
+- getfacl /path: Vai mostrar o usuario com permissao especial
 
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.
