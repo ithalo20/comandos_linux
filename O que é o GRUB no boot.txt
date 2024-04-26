@@ -1,0 +1,6 @@
+GRUB, ou Grand Unified Boot Loader, é um gerenciador de inicialização utilizado em sistemas operacionais baseados em Linux, como Ubuntu, Debian, Fedora, entre outros. O papel principal do GRUB é carregar o sistema operacional para a memória do computador durante o processo de inicialização, permitindo que o usuário selecione qual sistema operacional ou configuração de inicialização deseja utilizar, caso haja múltiplos sistemas instalados.
+
+Além disso, o GRUB também permite configurações avançadas, como a definição de parâmetros de inicialização, seleção de kernels alternativos e acesso a ferramentas de recuperação do sistema. Ele é instalado no Master Boot Record (MBR) ou na partição de inicialização do disco rígido, tornando-se a primeira etapa do processo de inicialização do sistema.
+
+Então quando criar uma partição caso tenha 2 ou mais sistemas operacionais, devemos deixar 1MB para Inicialização de BIOS
+Quando for instalar o sistema operacional tem que colocar no formato EFI para ser reconhecido pelo UEFI.
