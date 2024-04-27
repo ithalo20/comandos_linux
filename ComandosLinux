@@ -83,6 +83,7 @@ unzip <pacote>: Vai descompactar pacotes.zip
 
 - su <usuario>: permite a troca de usuario, exemplo: su <ithalo>.
 - sudo adduser <nome_usuario>: Ele cria um novo usuário e um grupo com o mesmo nome. (Usuario vai para a home e os vai para /etc/passwd e /etc/group)
+- sudo useradd <nome_usuario>: Ele cria um novo usuario também porém de forma menos amigável, menos interativa e mais complexa.
 - sudo userdel -r <nome_usuario>: Vai removar o usuário e seus grupos
 - passwd: muda a senha de usuario ou caso não tiver, cria uma senha
 - sudo passwd <usuario_desejado>: Muda a senha do usuário porém especifica qual usuario ou cria uma senha para o usuario
