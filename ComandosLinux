@@ -47,10 +47,12 @@ Tab: Completa a palavra que você esta digitando
 --- Downloads, instalações, listar atualizações, baixar e instalar atualizações, baixar arquivos da net para o pc local e desinstalação (APT, APT-CACHE e DPKG)
 
 - sudo apt install <pacote>: Ele busca o pacote nos repositórios oficiais do seu Linux, e caso ele exista, também busca as dependências dele, Então ele BAIXA esses pacotes (que vem com a extensão .deb) e  os INSTALA com o dpkg por baixo dos panos, LEMBRE-SE consigo baixar a dependencia solo, basta colocar o nome da dependencia no lugar do <pacote>
+- sudo apt install -f: Ele baixa as dependencias que estão faltando para fazer aqueles programas com problemas de dependencias funcionarem.
 - apt -y: E um parametro onde ele coloca "Yes" em todas as perguntas que tiver, entao nao precisa ficar colocando "Yes" manualmente, esse parametro ja faz isso.
 - sudo apt update: Atualiza as informações de software do seu PC
 - sudo apt upgrade: Atualiza todos os softwares.
 - sudo apt remove <nome_do_programa>: Desinstala o programa que você quiser, que foi instalado em apt.
+- sudo apt purge <nome_do_programa>: Desinstala o programa que voce quiser de forma que apaga TODAS os pacotes dependencias e tals.
 - sudo apt update: Atualiza informações de software do seu PC, ele fica apenas CIENTE que tem atualizações como ele mapeasse as coisas novas, porém ele nao baixa e nem instala essas atualizações.
 
 - sudo apt upgrade: Atualiza todos os softwares, usar após o APT UPDATE para listar as novas atualizações, ai damos um UPGRADE para baixar e instalar as novas atualizações.
@@ -143,8 +145,11 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - date -s <hh:mm:ss>: altera o horario
 - cal: mostra o calendario
 - ncal: mostra o calendario e o dia que estamos
-- timedatectl: Mostra todas as informações acima.
+- ntpdate pool.ntp.br: Ele vai deixar sincronizar o horario de brasilia automaticamente.
+- timedatectl: Mostra todas as informações acima (Informação total de data, hora, data universal UTC)
 - timedatectl set-local-rtc 1 --adjust-system-clock: Vai deixar o horario do PC local em vez de usar o da nuvem (caso der problema de horario de +3 no windows, USAR esse comando de horario local)
+- timedatectl set-timezone America/Sao_Paulo: Vai trocar para fuso horario de São Paulo, no caso brasilia.
+
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
 - pwd: mostra o endereço/caminho que você está.
@@ -279,6 +284,12 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 
 systemctl: Vai ver listar todos os sistemas que estão operando.
 systemctl status <nome_do_sistema>: Vai trazer o status do sistema que foi informado.
+
+--- Rede
+- ip addr: Mostra o IP do computador
+- ifconfig: Tambem mostra o IP do computador de forma mais simples
+- netstat -rn: Verificia o endereço de gateway
+- sudo cat /etc/resolv.conf: Arquivo onde fica o DNS
 
 -- Listagem de (PID)
 - ps aux: Mostra as (PID) de TODOS os processos de TUDO, o recomendado é usar junto com o | grep para filtrar o processo e o (PID)

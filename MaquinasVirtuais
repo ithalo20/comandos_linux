@@ -1,0 +1,59 @@
+Antes de tudo, quando você criar a VM no VirtualBox vá em configurações > Rede e coloco em Placa em modo bridge
+Quando configurar todo o ambiente do servidor, atualize todo o servidor (apt update && apt ugprade) e de um systemctl status ssh.service.
+depois faça um ip addr, e verifica o da maquina (geralmente: inet 192.168......, esse vai ser o IP para voce dar SSH na máquina, LEMBRANDO QUE É DINAMICO)
+Para deixar o IP fixo para nao ficar mudando você vai em (sudo cd /etc/netplan > vim 01-config-rede.yaml) ai você faz as configurações, vou deixar exemplo e vai substituindo para sua necessidade.
+
+
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    <nome-da-interface>: # Substitua por enp0s3 ou outro nome da sua interface
+      dhcp4: no
+      dhcp6: no
+      addresses: [<endereço-ip>/<máscara-de-rede>] # Ex: [192.168.1.10/24]
+      gateway4: <endereço-do-gateway> # Ex: 192.168.1.1
+      nameservers:
+        addresses: [<endereço-dns-1>, <endereço-dns-2>] # Ex: [8.8.8.8, 8.8.4.4]
+
+
+ip addr: em enp0s3 tem um ip no padrão inet 192.168...../xx esse é o IP + Mascára (/xx) para acesso ao server
+netstat -rn: Mostra o gateway
+sudo cat /etc/resolv.conf: Vai mostrar o seu endereço DNS
+
+
+E por ultimo você da um comando:
+
+sudo netplan apply
+sudo reboot
+
+------------
+
+[ ubu-vm1
+
+login: ithalo
+senha: 880753
+
+servidor
+Nome do servidor: ubu-vm1 (192.168.0.71) ]
+
+
+
+[ ubu-vm2
+
+login: ithalo
+senha: 880753
+
+servidor
+Nome do seridor: ubu-vm2 (192.168.0.72) ]
+
+
+
+[ ubu-vm3
+
+login: ithalo
+senha: 880753
+
+servidor
+Nome do seridor: ubu-vm2 (192.168.0.73) ]
