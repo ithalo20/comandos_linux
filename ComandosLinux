@@ -110,6 +110,11 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - setfacl -x u:nome.usuario:rwx /path/: Comando para tirar a permissao especial do usuario
 - getfacl /path: Vai mostrar o usuario com permissao especial
 
+--- Trocar hostname (nome da máquina)
+
+- hostnamectl set-hostname <novo_nome>: Vai trocar o hostname, porém após a reinicialização ele voltará ao normal.
+- hostnamectl set-hostname --static <novo_nome>: Vai trocar o hostname e vai permanecer para sempre até você trocar novamente.
+
 --- Navegação de diretório
 - "cd /": Vai para o diretório raiz.
 - "cd" ou "cd ~": Vai para a home usuario, se vc ve ~ saiba que vc ta no seu usuario.
@@ -150,6 +155,10 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - timedatectl set-local-rtc 1 --adjust-system-clock: Vai deixar o horario do PC local em vez de usar o da nuvem (caso der problema de horario de +3 no windows, USAR esse comando de horario local)
 - timedatectl set-timezone America/Sao_Paulo: Vai trocar para fuso horario de São Paulo, no caso brasilia.
 
+
+--- Atualizando PATH
+
+export PATH=/usr/local/bin:$PATH: Nesse caso eu usei para tirar o docker da snap store e depois fazer apontar para o docker original, esse comando consegue atualizar e deixar prioridade os executaveis da primeira inha /usr/local/bin, o :$PATH no final serve para adicionar mais um path, se eu nao colocasse ele iria apagar totalmente os valores anteriores assim como ">" faz.
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
 - pwd: mostra o endereço/caminho que você está.
@@ -264,6 +273,10 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 - alias lsa='ls -ltra': Nesse exemplo criei um alias, onde o lsa será um comando que equivale ao ls -ltra
 - unalias <comando_atalho>: Irá excluir o alias que desejado
 
+
+--- Variaveis (ENV)
+
+set: Esse comando trás todas as variáveis que estão armazenada.
 
 --- Abrir arquivo (não programa) e executar programa.
 - open <arquivo>: vai abrir o ARQUIVO (não programa), fora do terminal, igual o Start-process do windows.
