@@ -156,9 +156,11 @@ unzip <pacote>: Vai descompactar pacotes.zip
 - timedatectl set-timezone America/Sao_Paulo: Vai trocar para fuso horario de São Paulo, no caso brasilia.
 
 
---- Atualizando PATH
+--- Set, Export (variaveis), Atualizando PATH
 
-export PATH=/usr/local/bin:$PATH: Nesse caso eu usei para tirar o docker da snap store e depois fazer apontar para o docker original, esse comando consegue atualizar e deixar prioridade os executaveis da primeira inha /usr/local/bin, o :$PATH no final serve para adicionar mais um path, se eu nao colocasse ele iria apagar totalmente os valores anteriores assim como ">" faz.
+- set: Esse comando trás todas as variáveis que estão armazenada.
+- export <VAR="">: O comando "export" serve para criar variaveis de forma definitiva, se vc criar uma variavel sem o export com o tempo ela perde a informacao, ja com o export ela se permanece.
+- export PATH=/usr/local/bin:$PATH: Nesse caso eu usei para tirar o docker da snap store e depois fazer apontar para o docker original, esse comando consegue atualizar e deixar prioridade os executaveis da primeira inha /usr/local/bin, o :$PATH no final serve para adicionar mais um path, se eu nao colocasse ele iria apagar totalmente os valores anteriores assim como ">" faz.
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
 - pwd: mostra o endereço/caminho que você está.
@@ -272,11 +274,6 @@ exemplo de scp se for fazer download: scp <usuario>@<host_maquina>:<caminho> . (
 - alias: ele é um atalho para fazer um comando apenas digitando poucas coisas	 como, ll ele faz uma coisa e por ai vai.
 - alias lsa='ls -ltra': Nesse exemplo criei um alias, onde o lsa será um comando que equivale ao ls -ltra
 - unalias <comando_atalho>: Irá excluir o alias que desejado
-
-
---- Variaveis (ENV)
-
-set: Esse comando trás todas as variáveis que estão armazenada.
 
 --- Abrir arquivo (não programa) e executar programa.
 - open <arquivo>: vai abrir o ARQUIVO (não programa), fora do terminal, igual o Start-process do windows.
