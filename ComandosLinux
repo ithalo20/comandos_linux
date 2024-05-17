@@ -159,7 +159,8 @@ unzip <pacote>: Vai descompactar pacotes.zip
 --- Set, Export (variaveis), Atualizando PATH
 
 - set: Esse comando trás todas as variáveis que estão armazenada.
-- export <VAR="">: O comando "export" serve para criar variaveis de forma definitiva, se vc criar uma variavel sem o export com o tempo ela perde a informacao, ja com o export ela se permanece.
+- export: Mostra as variaveis exports existentes.
+- export <VAR="">: O comando "export" serve para criar variaveis onde fique disponiveis para processos filhos e sub-shells, ou seja por programas dependentes, mas tem que ser na mesma sessão.
 - export PATH=/usr/local/bin:$PATH: Nesse caso eu usei para tirar o docker da snap store e depois fazer apontar para o docker original, esse comando consegue atualizar e deixar prioridade os executaveis da primeira inha /usr/local/bin, o :$PATH no final serve para adicionar mais um path, se eu nao colocasse ele iria apagar totalmente os valores anteriores assim como ">" faz.
 
 --- Caminho, verificação de arquivos na pasta, localização de arquivo e filtragem.
