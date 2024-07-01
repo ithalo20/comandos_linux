@@ -345,6 +345,10 @@ notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação q
 
 cut -d "<delimitador" -f <numero_coluna> <arquivo>: É um comando que lembra o awk para conseguir filtrar o separados (ex: "cut -d "," -f 1 <arquivo>" vai filtrar apenas a primeira coluna.)
 
+--- Dividir arquivo
+
+- split -l <qtd_linhas> <arquivo.csv> <nome_partes>: Esse comando irá dividir o arquivo na quantidade de linhas especificadas, ex: split -l 1000 dados.csv parte_
+
 --- Primeiro Plano / Segundo plano
 
 - fg <numero da fila>: É um comando que passa o que esta em segundo plano para primeiro
@@ -386,7 +390,6 @@ CRTL+ pra direito: Troca para tela direita
 - lspci -vv: Comando que lista todas os componentes que estão conectados no barramento PCI do PC, só que de forma MUITO mais detalhada que o lspci normal.
 - lsusb: Comando que lista todas os componentes que estão conectados nas entradas USB do PC
 - lshw: Comando que lista todos os componentes de hardwares que está conectado no PC em formato de árvore, desde placa mão, placa de video, processador, hd, ssd, e tudo mais. *BEM COMPLETO*
-
 
 
 logar no mysql no trabalho: mysql -h <ip> -u <usuario> -p
