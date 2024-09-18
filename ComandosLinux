@@ -329,6 +329,20 @@ notify-send <mensagem_que_desejar>: Ira mostrar um pop-up de uma notificação q
 - sort -n: É um comando que traz em ordem alfabetica e em ordem númerica do menor para o maior.
 - sort -c: Ele avisa se esta ordenado ou não.
 
+--- Substituir caracter por outro, excluir palavra no arquivo, entre outros (sed)
+
+- sed 's/,/\n/g' <arquivo.txt>: Vai substituir a, por quebra de linhas
+
+- sed -i: Significa que o -i ja vai salvar no arquivo final o que foi modificado
+
+- sed -i 's/,/\n/g' <arquivo.txt>: Vai substituir a , por quebra de linhas, porem ja vai salvar direto no arquivo paasado a modificacao
+
+- sed -i '/vinjmp502/d' <arquivo.txt>: O /d no final é de deleted, entao so passar o nome que quer remover e passar o /d                 
+
+
+- sed -i '/vinjmp502/Id' <arquivo.txt>: O /Id no final é de deleted + case-insensitive (nao diferencia entre maiusculo e minusculo) so passar o nome que quer remover e passar o /Id
+
+
 --- Mudar atributos dos arquivos.
 
 - chattr: Permite dar ou retirar um atributo oua um determinado arquivo, ou diretório. (ex: chattr +1 <arquivo>) *Lembrando que o i protege o arquivo até do usuario root, pra poder excluir/mover/editar o arquivo fica blindado só retirando i* e para tirar (ex: chattr -i <arquivo>)
